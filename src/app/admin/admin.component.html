@@ -1,1 +1,68 @@
-<p>admin works!</p>
+<div class="admin">
+    <div class="head">
+      <h1>Messages</h1>
+      <div class="count" *ngIf="!loading">{{ totalElements }} message(s)</div>
+    </div>
+  
+    <div class="toolbar">
+      <input
+        class="search"
+        [(ngModel)]="q"
+        placeholder="Rechercher (nom, email, message...)"
+        (keyup.enter)="search()"
+      />
+  
+      <select class="select" [(ngModel)]="lu" (change)="search()">
+        <option value="all">Tous</option>
+        <option value="false">Non lus</option>
+        <option value="true">Lus</option>
+      </select>
+  
+      <button class="btn" (click)="search()">Rechercher</button>
+    </div>
+  
+    <p class="status" *ngIf="loading">Chargement…</p>
+    <p class="error" *ngIf="error">{{ error }}</p>
+  
+    <div class="meta" *ngIf="!loading && totalPages > 0">
+      <span>Page {{ page + 1 }} / {{ totalPages }}</span>
+      <span>{{ size }} / page</span>
+    </div>
+  
+    <div class="list">
+      <article class="card" *ngFor="let m of messages; trackBy: trackById">
+        <div class="row">
+          <div class="who">
+            <div class="name">
+              <strong>{{ m.nom }}</strong>
+              <span class="badge" [class.unread]="!m.lu">
+                {{ m.lu ? 'Lu' : 'Non lu' }}
+              </span>
+            </div>
+  
+            <div class="sub">
+              <span>{{ m.email }}</span>
+              <span *ngIf="m.telephone">• {{ m.telephone }}</span>
+              <span>• {{ m.createdAt | date:'dd/MM/yyyy HH:mm' }}</span>
+            </div>
+          </div>
+  
+          <button class="danger" (click)="remove(m.id)">Supprimer</button>
+        </div>
+  
+        <div class="chips">
+          <span class="chip" *ngIf="m.company">Société: {{ m.company }}</span>
+          <span class="chip" *ngIf="m.need">Besoin: {{ m.need }}</span>
+          <span class="chip" *ngIf="m.budget">Budget: {{ m.budget }}</span>
+        </div>
+  
+        <p class="message">{{ m.message }}</p>
+      </article>
+    </div>
+  
+    <div class="pager" *ngIf="totalPages > 1">
+      <button class="btn" (click)="prev()" [disabled]="page === 0">← Précédent</button>
+      <button class="btn" (click)="next()" [disabled]="page + 1 >= totalPages">Suivant →</button>
+    </div>
+  </div>
+  

@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Bloquer pages non publiques
+Disallow: /admin
+Disallow: /login
+
+# Si tu as des sous routes admin/login
+Disallow: /admin/
+Disallow: /login/
+
+# Sitemap
+Sitemap: https://vynexstudio.com/sitemap.xml

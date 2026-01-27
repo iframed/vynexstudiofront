@@ -1,1 +1,33 @@
-<p>login works!</p>
+<section class="page">
+    <div class="card">
+      <div class="title">Connexion Admin</div>
+      <div class="sub">Accès réservé à l'équipe.</div>
+  
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="field">
+          <label>Email</label>
+          <input type="email" formControlName="email" placeholder="admin@email.com"
+            [class.invalid]="form.get('email')?.touched && form.get('email')?.invalid" />
+          <small *ngIf="form.get('email')?.touched && form.get('email')?.invalid">Email invalide</small>
+        </div>
+  
+        <div class="field">
+          <label>Mot de passe</label>
+          <input type="password" formControlName="password" placeholder="••••••••"
+            [class.invalid]="form.get('password')?.touched && form.get('password')?.invalid" />
+          <small *ngIf="form.get('password')?.touched && form.get('password')?.invalid">
+            Mot de passe requis
+          </small>
+        </div>
+  
+        <div class="alert err" *ngIf="errorMsg">{{ errorMsg }}</div>
+  
+        <button class="btn primary" type="submit" [disabled]="loading">
+          {{ loading ? 'Connexion…' : 'Se connecter' }}
+        </button>
+  
+        <a class="back" routerLink="/">← Retour au site</a>
+      </form>
+    </div>
+  </section>
+  

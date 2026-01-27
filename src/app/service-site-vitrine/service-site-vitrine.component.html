@@ -1,0 +1,181 @@
+<!-- HERO SERVICE -->
+<section class="hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a routerLink="/">Accueil</a> <span>›</span>
+        <a routerLink="/services/">Services</a> <span>›</span>
+        <span>Site vitrine</span>
+      </nav>
+  
+      <div class="hero-grid">
+        <div>
+          <div class="badge">Service Vynexstudio</div>
+          <h1>{{ heroTitle }}</h1>
+          <p class="lead">{{ heroSubtitle }}</p>
+  
+          <ul class="bullets">
+            <li *ngFor="let b of bullets"> • {{ b }}</li>
+          </ul>
+  
+          <div class="cta">
+            <a class="btn primary" routerLink="/contact/">Demander un devis</a>
+            <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">
+              WhatsApp
+            </a>
+          </div>
+  
+          <p class="micro">
+            Réponse rapide • Devis clair • Accompagnement de A à Z
+          </p>
+        </div>
+  
+        <div class="side">
+          <div class="side-card">
+            <div class="side-title">Pour qui ?</div>
+            <p>PME, indépendants, services, cabinets, artisans, commerces…</p>
+  
+            <div class="side-title">Objectif</div>
+            <p>Créer un site qui inspire confiance et génère des demandes.</p>
+  
+            <div class="divider"></div>
+  
+            <div class="side-title">Livraison</div>
+            <p>Généralement 1–2 semaines (selon contenu/validation).</p>
+  
+            <a class="btn small" routerLink="/contact/">Obtenir une estimation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FEATURES -->
+  <section class="section">
+    <div class="wrap">
+        <div class="head head-center">
+            <h2>Un site vitrine qui attire des clients</h2>
+            <p>
+              Design premium, vitesse, SEO technique et messages convaincants :
+              votre vitrine devient un outil pour <strong>être trouvé sur Google</strong> et
+              <strong>transformer les visites en demandes</strong>.
+            </p>
+          </div>
+          
+  
+      <div class="grid">
+        <div class="card" *ngFor="let f of features">
+          <div class="title">{{ f.title }}</div>
+          <div class="desc">{{ f.desc }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- PROCESS -->
+  <section class="section alt">
+    <div class="wrap">
+        <div class="head head-center">
+            <h2>Un process clair pour livrer vite et obtenir des résultats</h2>
+            <p>
+              Une méthode simple, structurée et transparente : on avance étape par étape,
+              avec validations rapides — pour livrer un projet <strong>pro</strong>, <strong>performant</strong> et
+              <strong>prêt à convertir</strong>.
+            </p>
+          </div>
+          
+  
+      <div class="steps">
+        <div class="step" *ngFor="let s of steps">
+          <div class="n">{{ s.n }}</div>
+          <div>
+            <div class="t">{{ s.title }}</div>
+            <div class="d">{{ s.desc }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- PACKS -->
+  <section class="section">
+    <div class="wrap">
+  
+      <div class="head head-center">
+        <h2>Des offres claires, adaptées à votre objectif</h2>
+        <p>
+            Que vous cherchiez une présence professionnelle, plus de demandes, ou un vrai boost SEO,
+        choisissez le pack qui correspond à votre besoin.
+        </p>
+      </div>
+  
+      <div class="packs premium">
+        <article class="pack" *ngFor="let p of packs">
+  
+          <header class="pack-head">
+            <div class="pack-title">{{ p.title }}</div>
+  
+            <!-- ✅ PRIX FIXE -->
+            <div class="pack-price">
+              <span class="amount">{{ p.price }}</span>
+              <span class="currency">DH</span>
+            </div>
+          </header>
+  
+          <div class="pack-who">{{ p.who }}</div>
+  
+          <ul class="pack-list">
+            <li *ngFor="let it of p.includes">
+              <span class="check">✓</span>
+              <span>{{ it }}</span>
+            </li>
+          </ul>
+  
+          <div class="pack-actions">
+            <a class="btn primary" routerLink="/contact/">Demander un devis</a>
+            <div class="pack-note">Réponse rapide • Devis clair • Sans engagement</div>
+          </div>
+  
+        </article>
+      </div>
+  
+    </div>
+  </section>
+  
+  
+  
+  <!-- FAQ -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="head">
+        <h2>FAQ</h2>
+        <p>Les réponses aux questions les plus fréquentes.</p>
+      </div>
+  
+      <div class="faq">
+        <details *ngFor="let f of faqs">
+          <summary>{{ f.q }}</summary>
+          <p>{{ f.a }}</p>
+        </details>
+      </div>
+    </div>
+  </section>
+  
+  <!-- RELATED -->
+  
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="wrap">
+      <div class="cta-box">
+        <div>
+          <h2>Prêt à lancer votre site vitrine ?</h2>
+          <p>Expliquez votre besoin et recevez une estimation rapide et claire.</p>
+        </div>
+  
+        <div class="cta-actions">
+          <a class="btn primary" routerLink="/contact/">Demander un devis</a>
+          <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  

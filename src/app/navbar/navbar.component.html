@@ -1,0 +1,94 @@
+<header class="nav" [class.scrolled]="scrolled">
+  <div class="wrap nav-inner">
+
+    <!-- Logo -->
+    <a class="brand" routerLink="/" (click)="closeAll()">
+      <img class="brand-logo" src="/logo.webp" alt="VynexStudio" width="82" height="82" />
+
+
+    </a>
+
+    <!-- Desktop menu (inchangé si tu veux) -->
+    <nav class="menu desktop nav-center">
+      <div class="dropdown" (mouseleave)="openServices=false">
+        <button class="dropbtn" (click)="toggleServices()" type="button">
+          Expertises
+          <span class="chev" [class.up]="openServices">▾</span>
+        </button>
+
+        <div class="drop" *ngIf="openServices">
+          <a routerLink="/services/site-vitrine/" (click)="closeAll()">Site vitrine</a>
+          <a routerLink="/services/site-ecommerce/" (click)="closeAll()">Site e-commerce</a>
+          <a routerLink="/services/plateforme-web/" (click)="closeAll()">Plateforme web</a>
+          <a routerLink="/services/logiciel-gestion/" (click)="closeAll()">Logiciel de gestion</a>
+
+          <div class="sep"></div>
+
+          <a routerLink="/seo/" (click)="closeAll()">SEO</a>
+          <a routerLink="/googleAds/" (click)="closeAll()">Google Ads</a>
+        </div>
+      </div>
+
+      <a routerLink="/realisations/" routerLinkActive="active" (click)="closeAll()">Réalisations</a>
+      <a routerLink="/blog/" routerLinkActive="active" (click)="closeAll()">Actualite</a>
+      <a routerLink="/a-propos/" routerLinkActive="active" (click)="closeAll()">À propos</a>
+      <a routerLink="/contact/" routerLinkActive="active" class="hide-md" (click)="closeAll()">Contact</a>
+    </nav>
+
+    <!-- Burger -->
+    <button class="burger" type="button" (click)="toggleMobile()" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+</header>
+
+<!-- Overlay (comme l’image, fond gris à gauche) -->
+<div class="mobile-overlay" *ngIf="openMobile" (click)="closeAll()"></div>
+
+<!-- Menu mobile (panneau blanc à droite) -->
+<aside class="mobile-nav" *ngIf="openMobile" role="dialog" aria-label="Menu mobile">
+  <div class="mobile-top">
+    <button class="mobile-back" type="button" (click)="closeAll()" aria-label="Retour">←</button>
+  </div>
+
+  <nav class="mobile-list">
+
+    <!-- Expertises (ouvre sous-menu) -->
+    <button class="mobile-item" type="button" (click)="toggleServices()">
+      <span>Expertises</span>
+      <span class="chevron">›</span>
+    </button>
+
+    <div class="mobile-sub" *ngIf="openServices">
+      <a class="mobile-subItem" routerLink="/services/site-vitrine/" (click)="closeAll()">Site vitrine</a>
+      <a class="mobile-subItem" routerLink="/services/site-ecommerce/" (click)="closeAll()">Site e-commerce</a>
+      <a class="mobile-subItem" routerLink="/services/plateforme-web/" (click)="closeAll()">Plateforme web</a>
+      <a class="mobile-subItem" routerLink="/services/logiciel-gestion/" (click)="closeAll()">Logiciel de gestion</a>
+      <a class="mobile-subItem" routerLink="/services/application-mobile/" (click)="closeAll()">Application mobile</a>
+      <a class="mobile-subItem" routerLink="/seo/" (click)="closeAll()">SEO</a>
+      <a class="mobile-subItem" routerLink="/googleAds/" (click)="closeAll()">Google Ads</a>
+    </div>
+
+    <a class="mobile-item" routerLink="/realisations/" (click)="closeAll()">
+      <span>Realisations</span>
+      
+    </a>
+
+    <a class="mobile-item" routerLink="/blog/" (click)="closeAll()">
+      <span>Actualite</span>
+    </a>
+
+    <a class="mobile-item" routerLink="/a-propos/" (click)="closeAll()">
+      <span>À propos</span>
+      
+    </a>
+
+    <a class="mobile-item" routerLink="/contact/" (click)="closeAll()">
+      <span>Contact</span>
+    </a>
+
+  </nav>
+</aside>

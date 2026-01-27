@@ -1,0 +1,172 @@
+<!-- HERO SERVICE -->
+<section class="hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a routerLink="/">Accueil</a> <span>›</span>
+        <a routerLink="/services/">Services</a> <span>›</span>
+        <span>Logiciel de gestion</span>
+      </nav>
+  
+      <div class="hero-grid">
+        <div>
+          <div class="badge">Service Vynexstudio</div>
+          <h1>{{ heroTitle }}</h1>
+          <p class="lead">{{ heroSubtitle }}</p>
+  
+          <ul class="bullets">
+            <li *ngFor="let b of bullets"> • {{ b }}</li>
+          </ul>
+  
+          <div class="cta">
+            <a class="btn primary" routerLink="/contact/">Demander un devis</a>
+            <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+  
+          <p class="micro">Productivité • Automatisation • Outil adapté à votre métier</p>
+        </div>
+  
+        <div class="side">
+          <div class="side-card">
+            <div class="side-title">Cas d’usage</div>
+            <p>CRM, devis/factures, stock, RH, planning, tickets, reporting…</p>
+  
+            <div class="side-title">Pour qui ?</div>
+            <p>PME, agences, sociétés de services, franchises, équipes terrain.</p>
+  
+            <div class="divider"></div>
+  
+            <div class="side-title">Approche</div>
+            <p>MVP rapide → évolutions par modules.</p>
+  
+            <a class="btn small" routerLink="/contact/">Obtenir une estimation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FEATURES -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head head-center">
+        <h2>Pourquoi un logiciel de gestion sur mesure ?</h2>
+        <p>Vous gagnez du temps, réduisez les erreurs et pilotez l’activité avec des données fiables.</p>
+      </div>
+  
+      <div class="grid">
+        <div class="card" *ngFor="let f of features">
+          <div class="title">{{ f.title }}</div>
+          <div class="desc">{{ f.desc }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- PROCESS -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="head head-center">
+        <h2>Un process clair pour livrer vite</h2>
+        <p>
+          On avance par étapes : cadrage → MVP → modules. Objectif : livrer rapidement,
+          puis améliorer en continu.
+        </p>
+      </div>
+  
+      <div class="steps">
+        <div class="step" *ngFor="let s of steps">
+          <div class="n">{{ s.n }}</div>
+          <div>
+            <div class="t">{{ s.title }}</div>
+            <div class="d">{{ s.desc }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- PACKS (premium, sans prix) -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head head-center">
+        <h2>Des offres claires, adaptées à votre organisation</h2>
+        <p>
+          Du MVP (rapidement rentable) à une solution complète et évolutive :
+          choisissez le niveau adapté à vos priorités.
+        </p>
+      </div>
+  
+      <div class="packs premium">
+        <article class="pack" *ngFor="let p of packs" >
+         
+  
+          <header class="pack-head pack-head-no-price">
+            <div class="pack-title">{{ p.title }}</div>
+          </header>
+  
+          <div class="pack-who">{{ p.who }}</div>
+  
+          <ul class="pack-list">
+            <li *ngFor="let it of p.includes">
+              <span class="check">✓</span>
+              <span>{{ it }}</span>
+            </li>
+          </ul>
+  
+          <div class="pack-actions">
+            <a class="btn primary" routerLink="/contact/">Demander un devis</a>
+            <div class="pack-note">Devis clair • Roadmap • Sans engagement</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FAQ -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="head">
+        <h2>FAQ</h2>
+        <p>Questions fréquentes avant de lancer un logiciel de gestion.</p>
+      </div>
+  
+      <div class="faq">
+        <details *ngFor="let f of faqs">
+          <summary>{{ f.q }}</summary>
+          <p>{{ f.a }}</p>
+        </details>
+      </div>
+    </div>
+  </section>
+  
+  <!-- RELATED -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head">
+        <h2>Services complémentaires</h2>
+        <p>Selon vos besoins, on peut ajouter une app mobile, une plateforme web, ou du tracking.</p>
+      </div>
+  
+      <div class="related">
+        <a class="rel" *ngFor="let r of related" [routerLink]="r.link">{{ r.title }} →</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="wrap">
+      <div class="cta-box">
+        <div>
+          <h2>Parlons de votre logiciel</h2>
+          <p>Expliquez votre process, et on vous propose une solution + estimation claire.</p>
+        </div>
+  
+        <div class="cta-actions">
+          <a class="btn primary" routerLink="/contact/">Demander un devis</a>
+          <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  

@@ -1,0 +1,99 @@
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a routerLink="/">Accueil</a> <span>›</span>
+      <span>Blog</span>
+    </nav>
+
+    <div class="badge">VynexStudio • Agence Web & Marketing</div>
+
+    <h1>
+      Création de sites & logiciels sur mesure
+      <span class="sub">+ SEO & Google Ads pour générer des clients.</span>
+    </h1>
+
+    <p class="lead">
+      Nous accompagnons les entreprises au Maroc pour construire une présence digitale qui
+      <strong>rassure</strong>, <strong>attire</strong> et <strong>convertit</strong> :
+      site vitrine, e-commerce, plateforme, logiciel métier + acquisition (SEO / Ads) et tracking.
+      Sur ce blog, on partage notre méthode et des conseils concrets — et si vous voulez, on le fait pour vous.
+    </p>
+
+    <div class="cta">
+      <a class="btn primary" routerLink="/contact/">Demander un devis</a>
+      <a class="btn outline" routerLink="/services/">Voir nos services</a>
+    </div>
+
+    <ul class="hero-points" aria-label="Points forts">
+      <li>Devis clair & délais rapides</li>
+      <li>Design pro + SEO technique</li>
+      <li>Tracking conversions inclus</li>
+      <li>Support & maintenance</li>
+    </ul>
+
+    <div class="filters" role="tablist" aria-label="Catégories">
+      <button
+        class="chip"
+        *ngFor="let c of categories"
+        (click)="setCategory(c)"
+        [class.active]="c === selectedCategory"
+        type="button">
+        {{ c }}
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION POSTS -->
+<section class="section">
+  <div class="wrap">
+    <header class="head head-center">
+      <h2>Conseils & méthodes (orientés résultats)</h2>
+      <p>
+        Articles pensés pour vous aider à mieux comprendre ce qui marche — et à choisir la bonne stratégie
+        (site, logiciel, SEO, Ads) pour obtenir plus de demandes.
+      </p>
+    </header>
+
+    <div class="grid">
+      <a class="card" *ngFor="let p of filteredPosts" [routerLink]="['/blog', p.slug]">
+        <div class="cover">
+          <img [src]="p.cover" [alt]="p.coverAlt" loading="lazy" />
+          <span class="pill">{{ p.category }}</span>
+        </div>
+
+        <div class="body">
+          <div class="meta">
+            <span>{{ p.date }}</span>
+            <span class="dot">•</span>
+            <span>{{ p.readTime }}</span>
+          </div>
+
+          <div class="title">{{ p.title }}</div>
+          <div class="excerpt">{{ p.excerpt }}</div>
+          <div class="more">Voir la méthode →</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- CTA bas de page -->
+    <div class="bottom-cta">
+      <div class="bottom-box">
+        <div>
+          <div class="bottom-k">Vous avez un projet ?</div>
+          <div class="bottom-t">Parlons site, logiciel ou acquisition</div>
+          <p class="bottom-p">
+            Dites-nous ce que vous voulez construire (site vitrine, e-commerce, logiciel métier, plateforme)
+            et vos objectifs (SEO / Ads). On vous répond avec une estimation claire.
+          </p>
+        </div>
+        <div class="bottom-actions">
+          <a class="btn primary" routerLink="/contact">Demander un devis</a>
+          <a class="btn outline" routerLink="/services">Voir nos services</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

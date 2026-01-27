@@ -1,0 +1,60 @@
+<section class="hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a routerLink="/">Accueil</a> <span>›</span>
+        <span>Services</span>
+      </nav>
+  
+      <div class="hero-inner">
+        <div class="badge">Vynexstudio</div>
+        <h1>{{ heroTitle }}</h1>
+        <p class="lead">{{ heroSubtitle }}</p>
+  
+        <div class="cta">
+          <a class="btn primary" routerLink="/contact/">Demander un devis</a>
+          <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+  
+        <p class="micro">Plus de demandes • Plus de contacts • Plus d’opportunités</p>
+
+      </div>
+    </div>
+  </section>
+  
+  <section class="section">
+    <div class="wrap">
+      <div class="grid">
+        <a class="card" *ngFor="let c of cards" [routerLink]="c.link">
+          <div class="top">
+            <div class="title">{{ c.title }}</div>
+            <span class="pill" *ngIf="c.badge">{{ c.badge }}</span>
+          </div>
+  
+          <p class="desc">{{ c.desc }}</p>
+  
+          <ul class="points">
+            <li *ngFor="let p of c.points"> {{ p }}</li>
+          </ul>
+  
+          <div class="go">Voir le service →</div>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <section class="cta-final">
+    <div class="wrap">
+      <div class="cta-box">
+        <div>
+          <h2>Vous ne savez pas quoi choisir ?</h2>
+          <p>Écrivez-nous, on vous conseille selon votre objectif (leads, vente, automatisation).</p>
+        </div>
+  
+        <div class="cta-actions">
+          <a class="btn primary" routerLink="/contact/">Parler à Vynex</a>
+          <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  

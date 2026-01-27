@@ -1,0 +1,186 @@
+<!-- HERO SERVICE -->
+<section class="hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a routerLink="/">Accueil</a> <span>›</span>
+        <a routerLink="/services/">Services</a> <span>›</span>
+        <span>SEO</span>
+      </nav>
+  
+      <div class="hero-grid">
+        <div>
+          <div class="badge">Service Vynexstudio</div>
+          <h1>{{ heroTitle }}</h1>
+          <p class="lead">{{ heroSubtitle }}</p>
+  
+          <ul class="bullets">
+            <li *ngFor="let b of bullets"> • {{ b }}</li>
+          </ul>
+  
+          <div class="cta">
+            <a class="btn primary" routerLink="/contact">Demander un devis</a>
+            <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+  
+          <p class="micro">Objectif : plus de visibilité, plus de leads, plus de clients.</p>
+        </div>
+  
+        <div class="side">
+          <div class="side-card">
+            <div class="side-title">Pour qui ?</div>
+            <p>PME, services, e-commerce, artisans, cabinets, agences…</p>
+  
+            <div class="side-title">Objectif</div>
+            <p>Générer du trafic qualifié (clients) depuis Google.</p>
+  
+            <div class="divider"></div>
+  
+            <div class="side-title">Stratégie</div>
+            <p>Technique + Contenu + Autorité + Suivi</p>
+  
+            <a class="btn small" routerLink="/contact/">Obtenir une estimation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FEATURES -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head head-center">
+        <h2>Pourquoi investir dans le SEO ?</h2>
+        <p>
+          Le SEO est l’acquisition la plus rentable sur le long terme :
+          visibilité durable, leads réguliers, coût stable.
+        </p>
+      </div>
+  
+      <div class="grid">
+        <div class="card" *ngFor="let f of features">
+          <div class="title">{{ f.title }}</div>
+          <div class="desc">{{ f.desc }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- KPIs -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="head head-center">
+        <h2>Ce qu’on mesure</h2>
+        <p>On ne travaille pas “au feeling”. On suit les KPI qui impactent directement votre business.</p>
+      </div>
+  
+      <div class="kpis">
+        <div class="kpi" *ngFor="let item of kpis">
+          <div class="k">{{ item.k }}</div>
+          <div class="v">{{ item.v }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- PROCESS -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head head-center">
+        <h2>Une méthode claire pour monter sur Google</h2>
+        <p>Un plan structuré, puis des améliorations continues pour gagner des positions et des leads.</p>
+      </div>
+  
+      <div class="steps">
+        <div class="step" *ngFor="let s of steps">
+          <div class="n">{{ s.n }}</div>
+          <div>
+            <div class="t">{{ s.title }}</div>
+            <div class="d">{{ s.desc }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- PACKS (premium, sans prix) -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="head head-center">
+        <h2>Des offres claires, selon votre objectif</h2>
+        <p>Choisissez l’approche : diagnostic, croissance mensuelle ou stratégie forte.</p>
+      </div>
+  
+      <div class="packs premium">
+        <article class="pack" *ngFor="let p of packs" >
+          
+  
+          <header class="pack-head pack-head-no-price">
+            <div class="pack-title">{{ p.title }}</div>
+          </header>
+  
+          <div class="pack-who">{{ p.who }}</div>
+  
+          <ul class="pack-list">
+            <li *ngFor="let it of p.includes">
+              <span class="check">✓</span>
+              <span>{{ it }}</span>
+            </li>
+          </ul>
+  
+          <div class="pack-actions">
+            <a class="btn primary" routerLink="/contact/">Demander un devis</a>
+            <div class="pack-note">Suivi clair • Priorités • Sans engagement</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FAQ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head">
+        <h2>FAQ</h2>
+        <p>Les questions les plus fréquentes sur le référencement naturel.</p>
+      </div>
+  
+      <div class="faq">
+        <details *ngFor="let f of faqs">
+          <summary>{{ f.q }}</summary>
+          <p>{{ f.a }}</p>
+        </details>
+      </div>
+    </div>
+  </section>
+  
+  <!-- RELATED -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="head">
+        <h2>Services complémentaires</h2>
+        <p>Ads pour des résultats rapides + SEO pour une acquisition durable.</p>
+      </div>
+  
+      <div class="related">
+        <a class="rel" *ngFor="let r of related" [routerLink]="r.link">{{ r.title }} →</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="wrap">
+      <div class="cta-box">
+        <div>
+          <h2>Prêt à gagner des positions sur Google ?</h2>
+          <p>Envoyez votre site (ou activité) et recevez une estimation rapide + recommandations.</p>
+        </div>
+  
+        <div class="cta-actions">
+          <a class="btn primary" routerLink="/contact/">Demander un devis</a>
+          <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  

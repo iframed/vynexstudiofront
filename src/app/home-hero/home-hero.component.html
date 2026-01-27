@@ -1,0 +1,156 @@
+<!-- HERO (simple, crédible) -->
+<section class="hero">
+    <div class="wrap">
+      <div class="hero-inner">
+        <div class="badge">VynexStudio • Site Web & Logiciels</div>
+  
+        <h1>
+          Sites web & logiciels sur mesure
+          <span class="sub">pour générer des clients.</span>
+        </h1>
+  
+        <p class="lead">
+          Nous créons des <strong>sites vitrines</strong>, <strong>e-commerce</strong>, <strong>plateformes web</strong>,
+          <strong>logiciels de gestion</strong> et <strong>applications mobiles</strong>.
+          Objectif : un produit rapide, propre, et mesurable (SEO + tracking).
+        </p>
+  
+        <div class="cta">
+          <a class="btn primary" routerLink="/contact/">Demander un devis gratuit</a>
+          <a class="btn outline" [href]="whatsappLink" target="_blank" rel="noopener">
+            WhatsApp — réponse rapide
+          </a>
+        </div>
+  
+        <ul class="hero-points">
+          <li>Délais clairs</li>
+          <li>Design pro</li>
+          <li>SEO technique inclus</li>
+          <li>Support & maintenance</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+  <!-- PREUVE (juste après le hero) -->
+  <!-- PROOF (simple & crédible) -->
+<section class="trust">
+    <div class="wrap">
+      <div class="trust-grid">
+  
+        <div class="trust-left">
+          <div class="trust-title">Une agence orientée résultats</div>
+          <p class="trust-text">
+            Notre mission : transformer votre projet en un produit digital qui génère des demandes (site, e-commerce, app ou logiciel) — avec SEO + tracking inclus.
+          </p>
+        </div>
+  
+        <div class="trust-right">
+          <div class="trust-item">
+            <div class="trust-k">+25</div>
+            <div class="trust-v">projets livrés</div>
+          </div>
+  
+          <div class="trust-item">
+            <div class="trust-k">7–21j</div>
+            <div class="trust-v">délai moyen vitrine</div>
+          </div>
+  
+          <div class="trust-item">
+            <div class="trust-k">SEO</div>
+            <div class="trust-v">structure incluse</div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+  
+  <!-- SERVICES -->
+  <section class="section">
+    <div class="wrap">
+        <div class="head head-center">
+            <h2>Des services pensés pour générer des clients</h2>
+            <p>
+              Site vitrine, e-commerce, logiciel métier, SEO, Ads…
+              On construit une présence digitale qui <strong>attire</strong>, <strong>rassure</strong> et <strong>convertit</strong>.
+            </p>
+          </div>
+          
+          
+  
+      <div class="cards">
+        <a class="card" *ngFor="let s of services" [routerLink]="s.link">
+          <div class="card-top">
+            <div class="icon">{{ s.icon }}</div>
+          </div>
+          <div class="card-title">{{ s.title }}</div>
+          <div class="card-desc">{{ s.desc }}</div>
+          <div class="card-link">Voir le service →</div>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- RÉALISATIONS -->
+  
+ <!-- MÉTHODE -->
+<section class="section">
+    <div class="wrap">
+      <div class="head head-center">
+        <h2>Une méthode claire, orientée résultats</h2>
+        <p>
+          Que ce soit un <strong>site</strong>, un <strong>e-commerce</strong>, une <strong>plateforme</strong> ou un
+          <strong>logiciel métier</strong> : on avance étape par étape, avec validations rapides,
+          performance, <strong>SEO</strong> et <strong>tracking</strong> pour mesurer ce qui marche.
+        </p>
+      </div>
+  
+      <div class="steps">
+        <div class="step" *ngFor="let st of steps; let i = index">
+          <div class="n">{{ i + 1 }}</div>
+          <div>
+            <div class="t">{{ st.t }}</div>
+            <div class="d">{{ st.d }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  <!-- FAQ -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="head">
+        <h2>FAQ</h2>
+        <p>Réponses rapides aux questions fréquentes.</p>
+      </div>
+  
+      <div class="faq">
+        <details *ngFor="let f of faqs">
+          <summary>{{ f.q }}</summary>
+          <p>{{ f.a }}</p>
+        </details>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="wrap">
+      <div class="cta-box">
+        <div>
+          <h2>Parlons de votre projet</h2>
+          <p>Décrivez votre besoin (site, e-commerce, logiciel, app, SEO, Ads). Réponse rapide avec estimation claire.</p>
+        </div>
+  
+        <div class="cta-actions">
+          <a class="btn primary" routerLink="/contact/">Demander un devis</a>
+          <a class="btn outline" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  

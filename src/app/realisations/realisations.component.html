@@ -1,0 +1,89 @@
+<section class="section" id="realisations">
+    <div class="wrap">
+      <header class="head head-center">
+        <h2>Projets récents</h2>
+       <!-- <p>
+          Quelques projets récents de {{ companyName }}. Chaque projet contient plusieurs captures .
+        </p>-->
+      </header>
+  
+      <div class="layout">
+        <!-- Liste projets -->
+        <aside class="list" aria-label="Liste des projets">
+          <button
+            class="item"
+            *ngFor="let p of projects; let i = index"
+            (click)="selectProject(i)"
+            [class.active]="i === selectedIndex"
+            type="button">
+            <div class="top">
+              <div class="title">{{ p.title }}</div>
+              <span class="tag">{{ p.tag }}</span>
+            </div>
+            <div class="meta" *ngIf="p.city">{{ p.city }}</div>
+            <div class="desc">{{ p.desc }}</div>
+            <div class="more" *ngIf="p.link">Voir le projet →</div>
+          </button>
+        </aside>
+  
+        <!-- Détails + galerie -->
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <div class="k">Projet sélectionné</div>
+              <div class="h3">{{ activeProject.title }}</div>
+              <div class="sub">
+                <span class="tag soft">{{ activeProject.tag }}</span>
+                <span class="dot">•</span>
+                <span class="city" *ngIf="activeProject.city">{{ activeProject.city }}</span>
+              </div>
+            </div>
+  
+            <a *ngIf="activeProject.link" class="btn ghost" [routerLink]="activeProject.link">
+              Détails →
+            </a>
+          </div>
+  
+          <p class="panel-desc">{{ activeProject.desc }}</p>
+  
+          <div class="gallery" aria-label="Photos du projet">
+            <button
+              class="shot"
+              *ngFor="let ph of activeProject.photos; let j = index"
+              type="button"
+              (click)="openLightbox(selectedIndex, j)">
+              <img [src]="ph.src" [alt]="ph.alt" loading="lazy" />
+              <span class="cap">{{ j + 1 }}/{{ activeProject.photos.length }}</span>
+            </button>
+          </div>
+  
+          <div class="hint">
+            Cliquez sur une image pour l’agrandir (← → pour naviguer).
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Lightbox -->
+  <div class="lb" *ngIf="lbOpen" (click)="closeLightbox()" role="dialog" aria-modal="true">
+    <div class="lb-inner" (click)="$event.stopPropagation()">
+      <div class="lb-top">
+        <div class="lb-title">
+          {{ projects[lbProjectIndex].title }} — {{ lbPhotoIndex + 1 }}/{{ projects[lbProjectIndex].photos.length }}
+        </div>
+        <button class="lb-close" type="button" (click)="closeLightbox()" aria-label="Fermer">✕</button>
+      </div>
+  
+      <div class="lb-stage">
+        <button class="lb-nav left" type="button" (click)="prevPhoto()" aria-label="Précédent">‹</button>
+  
+        <img class="lb-img" [src]="lightboxPhoto.src" [alt]="lightboxPhoto.alt" />
+  
+        <button class="lb-nav right" type="button" (click)="nextPhoto()" aria-label="Suivant">›</button>
+      </div>
+  
+      <div class="lb-alt">{{ lightboxPhoto.alt }}</div>
+    </div>
+  </div>
+  

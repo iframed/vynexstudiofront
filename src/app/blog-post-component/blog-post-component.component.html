@@ -1,0 +1,83 @@
+<section class="hero" *ngIf="post; else notFound">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a routerLink="/">Accueil</a> <span>›</span>
+        <a routerLink="/blog">Blog</a> <span>›</span>
+        <span>{{ post.title }}</span>
+      </nav>
+  
+      <div class="top">
+        <span class="pill">{{ post.category }}</span>
+        <h1>{{ post.title }}</h1>
+        <p class="lead">{{ post.excerpt }}</p>
+  
+        <div class="meta">
+          <span>{{ post.date }}</span>
+          <span class="dot">•</span>
+          <span>{{ post.readTime }}</span>
+        </div>
+      </div>
+  
+      <div class="cover">
+        <img [src]="post.cover" [alt]="post.coverAlt" loading="eager" />
+      </div>
+    </div>
+  </section>
+  
+  <section class="section" *ngIf="post">
+    <div class="wrap content-wrap">
+      <article class="content" [innerHTML]="safeHtml"></article>
+  
+      <aside class="side">
+        <div class="box">
+          <div class="h">Besoin d’un site ou SEO ?</div>
+          <p>On vous conseille et on vous donne une estimation claire.</p>
+          <a class="btn primary" routerLink="/contact/">Demander un devis</a>
+          <a class="btn ghost" routerLink="/services/">Voir les services</a>
+        </div>
+  
+        <div class="box">
+          <div class="h">Services</div>
+          <a class="link" routerLink="/seo/">SEO</a>
+          <a class="link" routerLink="/services/site-vitrine">Site vitrine</a>
+          <a class="link" routerLink="/services/site-ecommerce">E-commerce</a>
+          <a class="link" routerLink="/services/plateforme-web">Plateforme web</a>
+        </div>
+  
+        <div class="box">
+          <div class="h">Articles</div>
+          <a class="link" routerLink="/blog/">← Retour au blog</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+  
+  <section class="section alt" *ngIf="post?.faq?.length">
+    <div class="wrap">
+      <div class="head head-center">
+        <h2>FAQ</h2>
+        <p>Questions liées à cet article.</p>
+      </div>
+  
+      <div class="faq">
+        <details *ngFor="let f of post!.faq!">
+          <summary>{{ f.q }}</summary>
+          <p>{{ f.a }}</p>
+        </details>
+      </div>
+    </div>
+  </section>
+  
+  <ng-template #notFound>
+    <section class="section">
+      <div class="wrap">
+        <div class="nf">
+          <h1>Article introuvable</h1>
+          <p>Ce contenu n’existe pas (ou a été supprimé).</p>
+          <a class="btn primary" routerLink="/blog/">← Retour au blog</a>
+          <a class="btn ghost" routerLink="/">Accueil</a>
+        </div>
+      </div>
+    </section>
+  </ng-template>
+  

@@ -1,0 +1,184 @@
+<!-- HERO SERVICE -->
+<section class="hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a routerLink="/">Accueil</a> <span>›</span>
+        <a routerLink="/services">Services</a> <span>›</span>
+        <span>Site e-commerce</span>
+      </nav>
+  
+      <div class="hero-grid">
+        <div>
+          <div class="badge">Service Vynexstudio</div>
+  
+          <h1>{{ heroTitle }}</h1>
+  
+          <p class="lead">{{ heroSubtitle }}</p>
+  
+          <ul class="bullets">
+            <li *ngFor="let b of bullets">{{ b }}</li>
+          </ul>
+  
+          <div class="cta">
+            <a class="btn primary" routerLink="/contact/">Demander un devis</a>
+            <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">
+              WhatsApp
+            </a>
+          </div>
+  
+          <p class="micro">Réponse rapide • Devis clair • Accompagnement de A à Z</p>
+        </div>
+  
+        <div class="side">
+          <div class="side-card">
+            <div class="side-title">Idéal pour</div>
+            <p>Marques, boutiques, commerces, restaurants, artisans…</p>
+  
+            <div class="side-title">Objectif</div>
+            <p>Vendre en ligne avec un tunnel clair, rapide et mesurable.</p>
+  
+            <div class="divider"></div>
+  
+            <div class="side-title">Livraison</div>
+            <p>Généralement 2–4 semaines (selon catalogue & validations).</p>
+  
+            <a class="btn small" routerLink="/contact/">Obtenir une estimation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FEATURES -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head head-center">
+        <h2>Une boutique e-commerce pensée pour vendre</h2>
+        <p>
+          Un design pro + une expérience d’achat fluide + vitesse + SEO + tracking.
+          Objectif : <strong>augmenter vos ventes</strong> et <strong>mesurer vos résultats</strong>.
+        </p>
+      </div>
+  
+      <div class="grid">
+        <div class="card" *ngFor="let f of features">
+          <div class="title">{{ f.title }}</div>
+          <div class="desc">{{ f.desc }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- PROCESS -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="head head-center">
+        <h2>De l’idée à une boutique prête à encaisser</h2>
+        <p>
+          On construit un e-commerce rapide, sécurisé et optimisé conversion.
+          Vous validez à chaque étape — pas de surprise.
+        </p>
+      </div>
+  
+      <div class="steps">
+        <div class="step" *ngFor="let s of steps">
+          <div class="n">{{ s.n }}</div>
+          <div>
+            <div class="t">{{ s.title }}</div>
+            <div class="d">{{ s.desc }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- PACKS -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head head-center">
+        <h2>Des packs e-commerce clairs et tout inclus</h2>
+        <p>
+          Vous payez une fois, vous obtenez une boutique prête à vendre :
+          <strong>hébergement + domaine inclus 1 an</strong>.
+        </p>
+      </div>
+  
+      <div class="packs premium">
+        <article class="pack" *ngFor="let p of packs">
+          <header class="pack-head">
+            <div class="pack-title">{{ p.title }}</div>
+  
+            <div class="pack-price">
+              <span class="amount">{{ p.price }}</span>
+              <span class="currency">DH</span>
+            </div>
+          </header>
+  
+          <div class="pack-who">{{ p.who }}</div>
+  
+          <ul class="pack-list">
+            <li *ngFor="let it of p.includes">
+              <span class="check">✓</span>
+              <span>{{ it }}</span>
+            </li>
+          </ul>
+  
+          <div class="pack-actions">
+            <a class="btn primary" routerLink="/contact">Demander un devis</a>
+            <div class="pack-note">Réponse rapide • Devis clair • Sans engagement</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FAQ -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="head head-center">
+        <h2>FAQ e-commerce</h2>
+        <p>Les questions les plus fréquentes avant de lancer une boutique en ligne.</p>
+      </div>
+  
+      <div class="faq">
+        <details *ngFor="let f of faqs">
+          <summary>{{ f.q }}</summary>
+          <p>{{ f.a }}</p>
+        </details>
+      </div>
+    </div>
+  </section>
+  
+  <!-- RELATED -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head head-center">
+        <h2>Services complémentaires</h2>
+        <p>Pour accélérer les ventes : SEO + Ads + tracking + automatisations.</p>
+      </div>
+  
+      <div class="related">
+        <a class="rel" *ngFor="let r of related" [routerLink]="r.link">
+          {{ r.title }} →
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="wrap">
+      <div class="cta-box">
+        <div>
+          <h2>Prêt à vendre en ligne ?</h2>
+          <p>Parlez-nous de vos produits et recevez une estimation rapide et claire.</p>
+        </div>
+  
+        <div class="cta-actions">
+          <a class="btn primary" routerLink="/contact/">Demander un devis</a>
+          <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  

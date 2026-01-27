@@ -1,0 +1,158 @@
+.admin{
+    max-width: 980px;
+    margin: 30px auto;
+    padding: 0 16px;
+  }
+  
+  .head{
+    display:flex;
+    align-items:flex-end;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  h1{ margin:0; font-size: 26px; }
+  .count{ color: rgba(15,23,42,.7); font-weight: 800; }
+  
+  .toolbar{
+    display:flex;
+    gap:10px;
+    flex-wrap: wrap;
+    align-items:center;
+    margin: 10px 0 14px;
+  }
+  
+  .search{
+    flex: 1 1 360px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(15,23,42,.12);
+  }
+  
+  .select{
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(15,23,42,.12);
+    background: #fff;
+  }
+  
+  .btn{
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(15,23,42,.12);
+    background: #fff;
+    cursor: pointer;
+    font-weight: 800;
+  }
+  
+  .btn[disabled]{
+    opacity: .5;
+    cursor: not-allowed;
+  }
+  
+  .status{
+    color: rgba(15,23,42,.7);
+    font-weight: 800;
+  }
+  
+  .error{
+    color: #b91c1c;
+    font-weight: 900;
+  }
+  
+  .meta{
+    display:flex;
+    justify-content: space-between;
+    color: rgba(15,23,42,.7);
+    font-weight: 800;
+    margin: 10px 0;
+  }
+  
+  .list{
+    display:flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .card{
+    border: 1px solid rgba(15,23,42,.10);
+    border-radius: 16px;
+    padding: 14px;
+    background: #fff;
+  }
+  
+  .row{
+    display:flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items:flex-start;
+  }
+  
+  .name{
+    display:flex;
+    align-items:center;
+    gap: 10px;
+  }
+  
+  .sub{
+    margin-top: 4px;
+    color: rgba(15,23,42,.65);
+    font-size: 13px;
+    font-weight: 700;
+  }
+  
+  .badge{
+    border: 1px solid rgba(15,23,42,.12);
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 900;
+    color: rgba(15,23,42,.75);
+  }
+  
+  .badge.unread{
+    color: #1d4ed8;
+    border-color: rgba(29,78,216,.25);
+    background: rgba(29,78,216,.08);
+  }
+  
+  .danger{
+    border: 1px solid rgba(185,28,28,.25);
+    color: #b91c1c;
+    background: rgba(185,28,28,.06);
+    border-radius: 12px;
+    padding: 8px 10px;
+    cursor:pointer;
+    font-weight: 900;
+  }
+  
+  .chips{
+    display:flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 10px 0 6px;
+  }
+  
+  .chip{
+    font-size: 12px;
+    font-weight: 800;
+    color: rgba(15,23,42,.75);
+    background: rgba(15,23,42,.04);
+    border: 1px solid rgba(15,23,42,.10);
+    border-radius: 999px;
+    padding: 6px 10px;
+  }
+  
+  .message{
+    margin: 6px 0 0;
+    line-height: 1.55;
+    color: rgba(15,23,42,.9);
+  }
+  
+  .pager{
+    display:flex;
+    justify-content: space-between;
+    margin-top: 14px;
+    gap: 10px;
+  }
+  

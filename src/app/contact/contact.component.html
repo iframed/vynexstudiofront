@@ -1,38 +1,211 @@
-<div class="contact-container">
-    <div class="contact-header">
-      <h2>CONTACT US</h2>
-    </div>
-    <div class="contact-content">
-      <!-- Formulaire de gauche -->
-      <div class="contact-form">
-        <h3>ONLINE INQUIRY</h3>
-        <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
-          <input type="text" name="name" placeholder="Name" required ngModel />
-          <input type="email" name="email" placeholder="Email" required ngModel />
-          <input type="tel" name="phone" placeholder="Phone" required ngModel />
-          <select name="interest" ngModel>
-            <option value="" disabled selected>Select An Interest</option>
-            <option value="General Inquiry">General Inquiry</option>
-            <option value="Customer Support">Customer Support</option>
-            <option value="Sales Inquiry">Sales Inquiry</option>
-          </select>
-          <textarea name="message" placeholder="Message" rows="4" ngModel></textarea>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
+<section class="hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a routerLink="/">Accueil</a> <span>›</span>
+        <span>Contact</span>
+      </nav>
   
-      <!-- Détails de contact à droite -->
-      <div class="contact-details">
-        <h3>CONTACT DETAILS</h3>
-        <p><a href="mailto:michelle&#64;signaturerealtynj.com">michelle&#64;signaturerealtynj.com</a></p>
+      <div class="hero-grid">
+        <div>
+          <div class="badge">Vynexstudio</div>
+          <h1>{{ heroTitle }}</h1>
+          <p class="lead">{{ heroSubtitle }}</p>
+  
+          <div class="quick">
+            <a
+  class="q"
+  (click)="trackWhatsapp('contact_page')"
+  [href]="whatsappLink"
+  target="_blank"
+  rel="noopener"
+>
 
-        <p>(908) 686-1200</p>
-        <div class="office-details">
-          <p><strong>Westfield</strong><br />233 North Avenue E.<br />Westfield, NJ 07090</p>
-          <p><strong>Summit</strong><br />357 Springfield Ave.<br />Short Hills, NJ 07901</p>
-          <p><strong>Short Hills Office</strong><br />549 Millburn Ave.<br />Short Hills, NJ 07078</p>
+              <span class="qk">WhatsApp</span>
+              <span class="qv">Réponse rapide</span>
+            </a>
+  
+            <a class="q" href="mailto:{{contactEmail}}">
+              <span class="qk">Email</span>
+              <span class="qv">{{ contactEmail }}</span>
+            </a>
+  
+            <a class="q" href="tel:{{contactPhone}}">
+              <span class="qk">Téléphone</span>
+              <span class="qv">{{ contactPhone }}</span>
+            </a>
+          </div>
+        </div>
+  
+        <div class="side">
+          <div class="side-card">
+            <div class="side-title">Avant de nous écrire</div>
+            <ul class="bullets">
+              <li> Expliquez votre service (site, e-commerce, plateforme...)</li>
+              <li> Donnez un budget estimatif (si possible)</li>
+              <li> Donnez un exemple de site que vous aimez</li>
+            </ul>
+  
+            <div class="divider"></div>
+            <div class="side-title">Ville</div>
+            <p>{{ city }} • Maroc</p>
+  
+            <a
+  class="q"
+  (click)="trackWhatsapp('contact_page')"
+  [href]="whatsappLink"
+  target="_blank"
+  rel="noopener"
+>
+
+              Écrire sur WhatsApp
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+  
+  <section class="section">
+    <div class="wrap">
+      <div class="grid">
+        <!-- FORM -->
+        <div class="form-card">
+          <div class="form-head">
+            <h2>Demander un devis</h2>
+            <p>Remplissez le formulaire. On vous répond rapidement.</p>
+          </div>
+  
+          <div class="alert ok" *ngIf="sent">
+             Message envoyé. Nous vous répondrons très vite.
+          </div>
+          <div class="alert err" *ngIf="errorMsg && !sent">
+            ⚠️ {{ errorMsg }}
+          </div>
+  
+          <form class="form" [formGroup]="form" (ngSubmit)="submit()" *ngIf="!sent">
+            <div class="two">
+              <div class="field">
+                <label>Nom *</label>
+                <input formControlName="name" [class.invalid]="isInvalid('name')" placeholder="Ex: Med R." />
+                <small *ngIf="isInvalid('name')">Nom requis (min 2 caractères)</small>
+              </div>
+  
+              <div class="field">
+                <label>Email *</label>
+                <input formControlName="email" [class.invalid]="isInvalid('email')" placeholder="Ex: contact@entreprise.ma" />
+                <small *ngIf="isInvalid('email')">Email valide requis</small>
+              </div>
+            </div>
+  
+            <div class="two">
+              <div class="field">
+                <label>Téléphone</label>
+                <input formControlName="phone" placeholder="+212..." />
+              </div>
+  
+              
+            </div>
+  
+            <div class="two">
+              <div class="field">
+                <label>Service *</label>
+                <select formControlName="service">
+                  <option *ngFor="let s of services" [value]="s.value">{{ s.label }}</option>
+                </select>
+              </div>
+  
+              <div class="field">
+                <label>Budget</label>
+                <select formControlName="budget">
+                  <option *ngFor="let b of budgets" [value]="b.value">{{ b.label }}</option>
+                </select>
+              </div>
+            </div>
+  
+            <div class="field">
+              <label>Message *</label>
+              <textarea
+                formControlName="message"
+                [class.invalid]="isInvalid('message')"
+                rows="6"
+                placeholder="Décrivez votre besoin, délai, exemples..."></textarea>
+              <small *ngIf="isInvalid('message')">Message requis (min 10 caractères)</small>
+            </div>
+  
+            <div class="actions">
+              <button class="btn primary" type="submit" [disabled]="loading">
+                {{ loading ? 'Envoi...' : 'Envoyer' }}
+              </button>
+              <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">
+                Envoyer sur WhatsApp
+              </a>
+            </div>
+  
+            <p class="micro">
+              En envoyant ce formulaire, vous acceptez d’être contacté pour répondre à votre demande.
+            </p>
+          </form>
+  
+          <div class="after" *ngIf="sent">
+            <a class="btn primary" routerLink="/">Retour accueil</a>
+            <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+  
+        <!-- TRUST -->
+        <aside class="trust">
+          <div class="trust-card">
+            <div class="trust-title">Pourquoi nous choisir ?</div>
+            <ul>
+              <li> Design moderne qui inspire confiance</li>
+              <li> SEO & performance (Google + expérience)</li>
+              <li> Tracking conversion (formulaire / WhatsApp)</li>
+              <li> Livraison par étapes (validation)</li>
+            </ul>
+          </div>
+  
+          <div class="trust-card">
+            <div class="trust-title">Après la livraison</div>
+            <ul>
+              <li> Maintenance & évolutions</li>
+              <li> SEO mensuel (option)</li>
+              <li> Google Ads (option)</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section alt">
+    <div class="wrap">
+      <div class="head">
+        <h2>FAQ</h2>
+        <p>Questions fréquentes avant de démarrer.</p>
+      </div>
+  
+      <div class="faq">
+        <details *ngFor="let f of faqs">
+          <summary>{{ f.q }}</summary>
+          <p>{{ f.a }}</p>
+        </details>
+      </div>
+    </div>
+  </section>
+  
+  <section class="cta-final">
+    <div class="wrap">
+      <div class="cta-box">
+        <div>
+          <h2>Besoin d’une réponse rapide ?</h2>
+          <p>Écrivez-nous directement sur WhatsApp, on vous répond rapidement.</p>
+        </div>
+  
+        <div class="cta-actions">
+          <a class="btn primary" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn ghost" routerLink="/services/">Voir les services</a>
+        </div>
+      </div>
+    </div>
+  </section>
   

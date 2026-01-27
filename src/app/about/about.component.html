@@ -1,0 +1,146 @@
+<!-- HERO -->
+<section class="hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a routerLink="/">Accueil</a> <span>›</span>
+        <span>À propos</span>
+      </nav>
+  
+      <div class="hero-grid">
+        <div>
+          <div class="badge">Vynexstudio</div>
+          <h1>{{ heroTitle }}</h1>
+          <p class="lead">{{ heroSubtitle }}</p>
+  
+          <div class="cta">
+            <a class="btn primary" routerLink="/contact">Parler de mon projet</a>
+            <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+  
+          <p class="micro">Objectif : un digital moderne, performant et rentable.</p>
+        </div>
+  
+        <div class="side">
+          <div class="side-card">
+            <div class="side-title">Notre promesse</div>
+            <p>Un produit digital crédible, rapide, et optimisé SEO/Conversion.</p>
+  
+            <div class="divider"></div>
+  
+            <div class="stats">
+              <div class="stat" *ngFor="let s of stats">
+                <div class="k">{{ s.k }}</div>
+                <div class="v">{{ s.v }}</div>
+              </div>
+            </div>
+  
+            <a class="btn small" routerLink="/contact/">Obtenir une estimation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- VALUES -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head head-center">
+        <h2>Nos valeurs</h2>
+        <p>Une façon de travailler simple : qualité, transparence et résultats.</p>
+      </div>
+  
+      <div class="grid">
+        <div class="card" *ngFor="let v of values">
+          <div class="title">{{ v.title }}</div>
+          <div class="desc">{{ v.desc }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- METHOD -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="head head-center">
+        <h2>Comment on travaille</h2>
+        <p>On avance par étapes, pour livrer vite et garder un haut niveau de qualité.</p>
+      </div>
+  
+      <div class="steps">
+        <div class="step" *ngFor="let s of steps">
+          <div class="n">{{ s.n }}</div>
+          <div>
+            <div class="t">{{ s.title }}</div>
+            <div class="d">{{ s.desc }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- TRUST -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head head-center">
+        <h2>Pourquoi les clients choisissent Vynex</h2>
+        <p>On construit des sites et produits qui rassurent, se positionnent sur Google et convertissent.</p>
+      </div>
+  
+      <div class="trust">
+        <div class="trust-box">
+          <div class="trust-title">Ce que vous gagnez</div>
+          <ul>
+            <li><span class="check">✓</span><span>Un design qui rassure et convertit</span></li>
+            <li><span class="check">✓</span><span>Une structure SEO multi-pages (services + blog)</span></li>
+            <li><span class="check">✓</span><span>Tracking conversions (formulaire / WhatsApp)</span></li>
+            <li><span class="check">✓</span><span>Une base propre et évolutive</span></li>
+          </ul>
+        </div>
+  
+        <div class="trust-box">
+          <div class="trust-title">Ce qu’on évite</div>
+          <ul>
+            <li><span class="x">✕</span><span>Sites lents et non indexés</span></li>
+            <li><span class="x">✕</span><span>Design générique qui ne donne pas confiance</span></li>
+            <li><span class="x">✕</span><span>Aucun suivi (pas de KPI)</span></li>
+            <li><span class="x">✕</span><span>Projet livré puis disparu</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FAQ -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="head">
+        <h2>FAQ</h2>
+        <p>Questions fréquentes à propos de Vynex.</p>
+      </div>
+  
+      <div class="faq">
+        <details *ngFor="let f of faqs">
+          <summary>{{ f.q }}</summary>
+          <p>{{ f.a }}</p>
+        </details>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="wrap">
+      <div class="cta-box">
+        <div>
+          <h2>Vous avez un projet ?</h2>
+          <p>Décrivez votre besoin et recevez une estimation claire.</p>
+        </div>
+  
+        <div class="cta-actions">
+          <a class="btn primary" routerLink="/contact/">Demander un devis</a>
+          <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  

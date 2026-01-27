@@ -1,0 +1,224 @@
+:host { display:block; }
+
+/* wrap global */
+.wrap{ max-width:1180px; margin:0 auto; padding:0 18px; }
+
+/* NAV full width */
+header.nav .wrap.nav-inner{
+  max-width: none;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+header.nav{ left:0; right:0; width:100%; }
+
+/* bar */
+.nav{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+.nav.scrolled{
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,.06);
+}
+
+.nav-inner{
+  height: 72px;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 14px;
+  padding-left: 18px;
+  padding-right: 18px;
+  
+}
+
+/* Brand */
+.brand{ display:flex; align-items:center; text-decoration:none; }
+.brand-logo{
+       /* ✅ réserve l’espace (anti CLS) */
+  
+  width: 82px;
+  height: 82px;
+  display:block;
+
+  position: absolute;   /* ✅ ne prend pas de place dans le layout */
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+/* Desktop */
+.desktop{ display:flex; }
+.menu{ display:flex; align-items:center; gap:16px; }
+.nav-center{ flex:1 1 auto; justify-content:center; min-width:0; }
+
+.menu a, .dropbtn{
+  color: #111827;
+  font-weight: 600;
+  text-decoration:none;
+  padding: 10px 10px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+.menu a:hover, .dropbtn:hover{ background: rgba(17,24,39,.06); }
+
+.dropdown{ position: relative; }
+.dropbtn{
+  border:none;
+  background: transparent;
+  cursor:pointer;
+  font: inherit;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.chev{ transition: transform .15s ease; display:inline-block; }
+.chev.up{ transform: rotate(180deg); }
+
+.drop{
+  position:absolute;
+  top: 44px;
+  left: 0;
+  width: 260px;
+  padding: 10px;
+  border-radius: 12px;
+  background:#fff;
+  border: 1px solid rgba(17,24,39,.10);
+  box-shadow: 0 14px 40px rgba(0,0,0,.10);
+}
+.drop a{
+  display:block;
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+.drop a:hover{ background: rgba(17,24,39,.06); }
+.sep{ height:1px; background: rgba(17,24,39,.12); margin: 8px 4px; }
+
+.hide-md{ display:inline-flex; }
+@media (max-width: 1100px){
+  .hide-md{ display:none; }
+}
+
+/* Burger */
+.burger{
+  display:none;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  cursor:pointer;
+  margin-right: 10px;
+}
+.burger span{
+  display:block;
+  height:2px;
+  background:#111827;
+  margin: 6px 0;
+  border-radius: 999px;
+}
+
+/* ===== MOBILE like image ===== */
+.mobile-overlay{
+  display:none;
+}
+.mobile-nav{
+  display:none;
+}
+
+@media (max-width: 980px){
+  .desktop{ display:none; }
+  .burger{ display:block; }
+
+  /* overlay gris */
+  .mobile-overlay{
+    display:block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 998;
+  }
+
+  /* panneau blanc à droite */
+  .mobile-nav{
+    display:flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: min(88vw, 420px);
+    background: #fff;
+    z-index: 999;
+    box-shadow: -18px 0 50px rgba(0,0,0,.18);
+  }
+
+  /* top */
+  .mobile-top{
+    height: 78px;
+    display:flex;
+    align-items:center;
+    padding: 0 18px;
+  }
+  .mobile-back{
+    width: 42px;
+    height: 42px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 28px;
+    color: #111827;
+    line-height: 1;
+  }
+
+  /* list items */
+  .mobile-list{
+    display:flex;
+    flex-direction: column;
+  }
+
+  .mobile-item{
+    width: 100%;
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+
+    padding: 22px 22px;
+    font-size: 22px;
+    font-weight: 400;
+    color: #111827;
+
+    background: transparent;
+    border: none;
+    border-top: 1px solid #e5e7eb;
+
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .chevron{
+    font-size: 20px;
+    color: #9ca3af;
+  }
+
+  /* submenu */
+  .mobile-sub{
+    border-top: 1px solid #e5e7eb;
+    padding: 10px 0 12px;
+  }
+  .mobile-subItem{
+    display:block;
+    padding: 14px 22px 14px 34px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #111827;
+    text-decoration: none;
+  }
+  .mobile-subItem:hover{
+    background: #f9fafb;
+  }
+}

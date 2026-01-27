@@ -1,0 +1,180 @@
+<!-- HERO SERVICE -->
+<section class="hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a routerLink="/">Accueil</a> <span>›</span>
+        <a routerLink="/services/">Services</a> <span>›</span>
+        <span>Plateforme web</span>
+      </nav>
+  
+      <div class="hero-grid">
+        <div>
+          <div class="badge">Service Vynexstudio</div>
+          <h1>{{ heroTitle }}</h1>
+          <p class="lead">{{ heroSubtitle }}</p>
+  
+          <ul class="bullets">
+            <li *ngFor="let b of bullets"> • {{ b }}</li>
+          </ul>
+  
+          <div class="cta">
+            <a class="btn primary" routerLink="/contact/">Demander un devis</a>
+            <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">
+              WhatsApp
+            </a>
+          </div>
+  
+          <p class="micro">SaaS • Marketplace • Réservation • Espace client</p>
+        </div>
+  
+        <div class="side">
+          <div class="side-card">
+            <div class="side-title">Cas d’usage</div>
+            <p>SaaS, marketplace, réservation, espace client, portail B2B…</p>
+  
+            <div class="side-title">Valeur</div>
+            <p>Automatiser + scaler votre business avec un produit digital.</p>
+  
+            <div class="divider"></div>
+  
+            <div class="side-title">Approche</div>
+            <p>MVP rapide → modules → évolution continue.</p>
+  
+            <a class="btn small" routerLink="/contact/">Obtenir une estimation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FEATURES -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head head-center">
+        <h2>Une plateforme web solide et scalable</h2>
+        <p>
+          On développe un produit moderne : UX, sécurité, performance, gestion utilisateurs,
+          paiement, et une base technique prête à évoluer.
+        </p>
+      </div>
+  
+      <div class="grid">
+        <div class="card" *ngFor="let f of features">
+          <div class="title">{{ f.title }}</div>
+          <div class="desc">{{ f.desc }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- PROCESS -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="head head-center">
+        <h2>Une méthode MVP → modules → croissance</h2>
+        <p>
+          On livre vite une première version utilisable, puis on itère :
+          fonctionnalités, automatisations, acquisition, et optimisation continue.
+        </p>
+      </div>
+  
+      <div class="steps">
+        <div class="step" *ngFor="let s of steps">
+          <div class="n">{{ s.n }}</div>
+          <div>
+            <div class="t">{{ s.title }}</div>
+            <div class="d">{{ s.desc }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- PACKS -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head head-center">
+        <h2>Des offres claires pour votre produit</h2>
+        <p>
+          Du MVP (validation rapide) à une plateforme commerciale complète :
+          choisissez le niveau adapté à votre ambition.
+        </p>
+      </div>
+  
+      <div class="packs premium">
+        <article class="pack" *ngFor="let p of packs">
+  
+          <!-- Header simple (sans prix) -->
+          <header class="pack-head pack-head-no-price">
+            <div class="pack-title">{{ p.title }}</div>
+          </header>
+  
+          <div class="pack-who">{{ p.who }}</div>
+  
+          <ul class="pack-list">
+            <li *ngFor="let it of p.includes">
+              <span class="check">✓</span>
+              <span>{{ it }}</span>
+            </li>
+          </ul>
+  
+          <div class="pack-actions">
+            <a class="btn primary" routerLink="/contact/">Demander un devis</a>
+            <div class="pack-note">Roadmap claire • Devis transparent • Sans engagement</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  
+  
+  <!-- FAQ -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="head">
+        <h2>FAQ</h2>
+        <p>Les questions fréquentes avant de lancer une plateforme web.</p>
+      </div>
+  
+      <div class="faq">
+        <details *ngFor="let f of faqs">
+          <summary>{{ f.q }}</summary>
+          <p>{{ f.a }}</p>
+        </details>
+      </div>
+    </div>
+  </section>
+  
+  <!-- RELATED -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head">
+        <h2>Services complémentaires</h2>
+        <p>Pour accélérer : SEO, acquisition, mobile, automatisations, tracking…</p>
+      </div>
+  
+      <div class="related">
+        <a class="rel" *ngFor="let r of related" [routerLink]="r.link">
+          {{ r.title }} →
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="wrap">
+      <div class="cta-box">
+        <div>
+          <h2>Prêt à créer votre plateforme web ?</h2>
+          <p>Décrivez votre idée et recevez une estimation claire + une roadmap MVP.</p>
+        </div>
+  
+        <div class="cta-actions">
+          <a class="btn primary" routerLink="/contact/">Demander un devis</a>
+          <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
