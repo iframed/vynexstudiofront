@@ -1,10 +1,9 @@
 // service-google-ads.component.ts
-import { CommonModule, DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { CommonModule, DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 import { AdsAnalyticsService } from '../service/ads-analytics.service';
-
 
 type FaqItem = { q: string; a: string };
 type Feature = { title: string; desc: string };
@@ -26,40 +25,53 @@ export class ServiceGoogleAdsComponent implements OnInit {
 
   // ⚠️ mets ton domaine
   siteUrl = 'https://vynexstudio.com';
+
   // ⚠️ mets ton WhatsApp
   whatsappNumber = '+212644071444';
 
-  slug = '/googleAds/';
+  /**
+   * ✅ Slug SEO recommandé:
+   * - plus lisible
+   * - plus standard
+   * - meilleur CTR dans Google
+   *
+   * Si ton router actuel est /googleAds/, garde l’ancien mais redirige 301 côté serveur
+   * vers /google-ads/ pour éviter le duplicate content.
+   */
+  slug = '/google-ads/';
   canonicalUrl = this.siteUrl + this.slug;
 
-  // SEO
+  /**
+   * ✅ SEO : cluster "agence marketing digitale / agence web / publicité Google / gestion Google Ads / leads"
+   */
   metaTitle =
-  'Campagnes publicitaires (Google Ads) au Maroc | Leads qualifiés & CPL maîtrisé | Vynexstudio';
+    'Agence Marketing Digitale Google Ads au Maroc | Publicité Google & Leads | Vynexstudio';
 
-metaDescription =
-  "Vynexstudio gère vos campagnes publicitaires Google (Google Ads) au Maroc : Search, Performance Max, remarketing. Objectif : plus de leads, coût par lead maîtrisé, tracking (formulaire, appel, WhatsApp) et optimisation continue. Devis rapide.";
+  metaDescription =
+    'Vynexstudio, agence marketing digitale et web au Maroc : gestion Google Ads (Search, Performance Max, remarketing) + tracking conversions (GA4, appels, WhatsApp, formulaires). Objectif : leads qualifiés, CPL maîtrisé, optimisation continue.';
 
-heroTitle = 'Campagnes publicitaires : des leads qualifiés, pas du trafic';
-heroSubtitle =
-  "On lance et optimise vos campagnes Google (Search, Performance Max, remarketing) avec tracking clair, annonces persuasives et landing page orientée conversion.";
-
+  /**
+   * H1 / HERO (si tu utilises encore le binding dans le HTML, sinon tu peux le remplacer par texte fixe)
+   */
+  heroTitle = 'Agence Marketing Digitale Google Ads – Publicité Google orientée génération de leads';
+  heroSubtitle =
+    "Nous gérons vos campagnes Google Ads pour générer des leads qualifiés (appels, formulaires, WhatsApp). Stratégie marketing, gestion Google Ads, tracking conversions et optimisation continue pour améliorer le coût par lead et la rentabilité.";
 
   bullets: string[] = [
-    'Attirez des clients “chauds” (ils cherchent déjà votre service)',
-    'Tracking complet : formulaire, appel, WhatsApp',
+    'Gestion Google Ads orientée leads (pas juste des clics)',
+    'Tracking complet : formulaire, appel, WhatsApp (GA4/Tag Manager)',
     'Optimisation continue : coût/lead + qualité des demandes',
     'Landing page + messages : plus de demandes, moins de budget gaspillé',
   ];
-  
 
   proofs: Proof[] = [
     {
-      title: 'Ciblage “intention”',
-      desc: 'On mise sur les mots-clés qui traduisent un besoin réel (acheter, devis, près de moi…).',
+      title: 'Stratégie “intention”',
+      desc: 'On cible les recherches à forte intention (devis, prix, près de moi, service…).',
     },
     {
       title: 'Tracking propre',
-      desc: 'Sans tracking, impossible d’optimiser. On mesure ce qui rapporte : leads, appels, WhatsApp.',
+      desc: 'On mesure ce qui rapporte : leads, appels, WhatsApp, formulaires.',
     },
     {
       title: 'Optimisation hebdo',
@@ -79,15 +91,15 @@ heroSubtitle =
     { title: 'Performance Max', desc: 'Couverture multi-réseaux avec contrôle des signaux & objectifs.' },
     { title: 'Remarketing', desc: 'Relancer les visiteurs chauds (site, paniers, formulaires incomplets).' },
     { title: 'Landing page', desc: 'Une page pensée conversion : preuves, offres, CTA, vitesse, mobile.' },
-    { title: 'Extensions & appels', desc: 'Appel, site links, accroches, zones, formulaires… pour + de clics utiles.' },
+    { title: 'Extensions & appels', desc: 'Appel, sitelinks, accroches, zones, formulaires… pour + de clics utiles.' },
     { title: 'Pilotage & reporting', desc: 'Tableau clair : budget, leads, CPL, CVR, mots-clés gagnants.' },
   ];
 
   kpis: Kpi[] = [
     { k: 'CPL', v: 'Coût par lead (objectif principal)' },
     { k: 'CVR', v: 'Taux de conversion (visite → demande)' },
-    { k: 'Quality', v: 'Qualité des leads (réels / qualifiés)' },
-    { k: 'Search terms', v: 'Requêtes réelles (négatifs + opportunités)' },
+    { k: 'Qualité', v: 'Qualité des leads (réels / qualifiés)' },
+    { k: 'Requêtes', v: 'Search terms (négatifs + opportunités)' },
   ];
 
   steps: Step[] = [
@@ -123,11 +135,7 @@ heroSubtitle =
         'Suivi des conversions (leads, appels, WhatsApp)',
         'Reporting clair + actions concrètes',
       ],
-    }
-    
-    
-   
-    
+    },
   ];
 
   faqs: FaqItem[] = [
@@ -137,7 +145,7 @@ heroSubtitle =
     },
     {
       q: 'Est-ce que vous faites la landing page aussi ?',
-      a: "Oui. Une bonne landing peut doubler le taux de conversion. On peut créer/optimiser votre page pour augmenter les demandes.",
+      a: "Oui. Une bonne landing peut améliorer fortement le taux de conversion. On peut créer/optimiser votre page pour augmenter les demandes.",
     },
     {
       q: 'Quel budget pub faut-il prévoir ?',
@@ -145,7 +153,7 @@ heroSubtitle =
     },
     {
       q: 'Vous mesurez WhatsApp / appels ?',
-      a: "Oui, on met en place le tracking des conversions (formulaire, appel, WhatsApp) pour optimiser sur ce qui rapporte.",
+      a: 'Oui, on met en place le tracking des conversions (formulaire, appel, WhatsApp) pour optimiser sur ce qui rapporte.',
     },
     {
       q: 'Google Ads ou Meta Ads ?',
@@ -157,11 +165,13 @@ heroSubtitle =
     { title: 'SEO (référencement naturel)', link: '/seo/' },
     { title: 'Landing page / site vitrine', link: '/services/site-vitrine/' },
     { title: 'Plateforme web', link: '/services/plateforme-web/' },
-    { title: 'Tracking & analytics', link: '/seo/' },
+    { title: 'Tracking & analytics', link: '/services/tracking-analytics/' }, // ✅ évite doublon /seo/
   ];
 
   get whatsappLink(): string {
-    const text = encodeURIComponent('Bonjour Vynex, je souhaite un devis pour une campagne Google Ads.');
+    const text = encodeURIComponent(
+      'Bonjour Vynex, je souhaite un devis pour une campagne Google Ads.'
+    );
     const phone = this.whatsappNumber.replace(/\s+/g, '').replace('+', '');
     return `https://wa.me/${phone}?text=${text}`;
   }
@@ -182,7 +192,7 @@ heroSubtitle =
     this.injectBreadcrumbJsonLd();
   }
 
-  // Tracking simple sur CTA (optionnel)
+  // Tracking simple sur CTA
   trackCta(kind: 'primary' | 'whatsapp') {
     this.analytics.trackLead('lead_click', { kind, page: 'google_ads' });
   }
@@ -192,17 +202,20 @@ heroSubtitle =
     this.meta.updateTag({ name: 'description', content: this.metaDescription });
     this.meta.updateTag({ name: 'robots', content: 'index,follow' });
 
+    // OpenGraph
     this.meta.updateTag({ property: 'og:type', content: 'website' });
     this.meta.updateTag({ property: 'og:site_name', content: this.companyName });
     this.meta.updateTag({ property: 'og:title', content: this.metaTitle });
     this.meta.updateTag({ property: 'og:description', content: this.metaDescription });
     this.meta.updateTag({ property: 'og:url', content: this.canonicalUrl });
+    this.meta.updateTag({ property: 'og:locale', content: 'fr_MA' });
 
+    // Twitter
     this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
     this.meta.updateTag({ name: 'twitter:title', content: this.metaTitle });
     this.meta.updateTag({ name: 'twitter:description', content: this.metaDescription });
 
-    // ✅ petits bonus SEO (sans images)
+    // Bonus
     this.meta.updateTag({ name: 'theme-color', content: '#0b1220' });
   }
 
@@ -218,25 +231,33 @@ heroSubtitle =
 
   private injectServiceJsonLd(): void {
     const id = 'jsonld-vynex-service-google-ads';
-    const existing = this.doc.getElementById(id);
-    if (existing) existing.remove();
+    this.doc.getElementById(id)?.remove();
 
     const jsonLd = {
       '@context': 'https://schema.org',
       '@type': 'Service',
-      name: 'Campagnes publicitaires Google (Google Ads)',
-      provider: { '@type': 'Organization', name: this.companyName, url: this.siteUrl },
-      areaServed: 'MA',
-      serviceType: 'Google Ads / Publicité en ligne',
-      url: this.canonicalUrl,
+      name: 'Gestion Google Ads (Publicité Google)',
+      serviceType: 'Google Ads / Publicité sur Google',
       description: this.metaDescription,
-      offers: {
-        '@type': 'Offer',
-        availability: 'https://schema.org/InStock',
-        priceSpecification: {
-          '@type': 'PriceSpecification',
-          priceCurrency: 'MAD',
-        },
+      provider: {
+        '@type': 'Organization',
+        name: this.companyName,
+        url: this.siteUrl,
+      },
+      areaServed: {
+        '@type': 'Country',
+        name: 'Morocco',
+      },
+      url: this.canonicalUrl,
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Offres Google Ads',
+        itemListElement: this.packs.map((p) => ({
+          '@type': 'Offer',
+          name: p.title,
+          description: p.who,
+          availability: 'https://schema.org/InStock',
+        })),
       },
     };
 
@@ -249,8 +270,7 @@ heroSubtitle =
 
   private injectFaqJsonLd(): void {
     const id = 'jsonld-vynex-faq-google-ads';
-    const existing = this.doc.getElementById(id);
-    if (existing) existing.remove();
+    this.doc.getElementById(id)?.remove();
 
     const faqJsonLd = {
       '@context': 'https://schema.org',
@@ -271,15 +291,14 @@ heroSubtitle =
 
   private injectBreadcrumbJsonLd(): void {
     const id = 'jsonld-vynex-breadcrumb-google-ads';
-    const existing = this.doc.getElementById(id);
-    if (existing) existing.remove();
+    this.doc.getElementById(id)?.remove();
 
     const data = {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Accueil', item: this.siteUrl + '/' },
-        { '@type': 'ListItem', position: 2, name: 'Services', item: this.siteUrl + '/services' },
+        { '@type': 'ListItem', position: 2, name: 'Services', item: this.siteUrl + '/services/' },
         { '@type': 'ListItem', position: 3, name: 'Google Ads', item: this.canonicalUrl },
       ],
     };

@@ -1,191 +1,195 @@
 <!-- service-google-ads.component.html -->
 <section class="hero">
-    <div class="wrap">
-      <nav class="crumbs" aria-label="Breadcrumb">
-        <a routerLink="/">Accueil</a> <span>›</span>
-        <a routerLink="/services/">Services</a> <span>›</span>
-        <span>Google Ads</span>
-      </nav>
-  
-      <div class="hero-grid">
-        <div>
-          <div class="badge">Service Vynexstudio</div>
-          <h1>{{ heroTitle }}</h1>
-          <p class="lead">{{ heroSubtitle }}</p>
-  
-          <ul class="bullets">
-            <li *ngFor="let b of bullets"> • {{ b }}</li>
-          </ul>
-  
-          <div class="cta">
-            <a class="btn primary"
-               routerLink="/contact/"
-               (click)="trackCta('primary')">
-              Demander un devis
-            </a>
-  
-            <a class="btn ghost"
-               [href]="whatsappLink"
-               target="_blank"
-               rel="noopener"
-               (click)="trackCta('whatsapp')">
-              WhatsApp
-            </a>
-          </div>
-  
-          <p class="micro">Search • Performance Max • Remarketing • Tracking conversions</p>
-        </div>
-  
-        <div class="side">
-          <div class="side-card">
-            <div class="side-title">Objectif</div>
-            <p>Des leads qualifiés (appels, formulaires, WhatsApp) avec un coût maîtrisé.</p>
-  
-            <div class="side-title">Pour qui ?</div>
-            <p>Services locaux, B2B, e-commerce, entreprises qui veulent accélérer.</p>
-  
-            <div class="divider"></div>
-  
-            <div class="side-title">Ce qu’on met en place</div>
-            <p>Tracking → campagnes → landing → optimisation continue.</p>
-  
-            <a class="btn small" routerLink="/contact/" (click)="trackCta('primary')">
-              Obtenir une estimation
-            </a>
-          </div>
-        </div>
-      </div>
-  
-      <div class="hero-proof">
-        <div class="proof" *ngFor="let p of proofs">
-          <div class="proof-t">{{ p.title }}</div>
-          <div class="proof-d">{{ p.desc }}</div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Industries -->
-  <section class="section">
-    <div class="wrap">
-      <div class="head head-center">
-        <h2>Google Ads pour les secteurs qui veulent des demandes</h2>
-        <p>On adapte la structure, les mots-clés et la landing selon votre activité.</p>
-      </div>
-  
-      <div class="grid">
-        <div class="card" *ngFor="let it of industries">
-          <div class="title">{{ it.title }}</div>
-          <div class="desc">{{ it.desc }}</div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Features -->
-  <section class="section alt">
-    <div class="wrap">
-      <div class="head head-center">
-        <h2>Une gestion orientée performance</h2>
-        <p>On ne cherche pas “des clics”, on cherche des conversions mesurables.</p>
-      </div>
-  
-      <div class="grid">
-        <div class="card" *ngFor="let f of features">
-          <div class="title">{{ f.title }}</div>
-          <div class="desc">{{ f.desc }}</div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- KPIs -->
-  
-  
-  <!-- Process -->
-  
-  
-  <!-- Packs -->
-  <section class="section">
-    <div class="wrap">
-      <div class="head head-center">
-        <h2>Des offres claires</h2>
-        <p>Selon votre maturité, on commence par diagnostiquer ou on pilote le budget chaque mois.</p>
-      </div>
-  
-      <div class="packs premium">
-        <article class="pack" *ngFor="let p of packs" [class.featured]="p.featured">
-          <div class="pack-badge" *ngIf="p.featured">Recommandé</div>
-  
-          <header class="pack-head pack-head-no-price">
-            <div class="pack-title">{{ p.title }}</div>
-          </header>
-  
-          <div class="pack-who">{{ p.who }}</div>
-  
-          <ul class="pack-list">
-            <li *ngFor="let it of p.includes">
-              <span class="check">✓</span>
-              <span>{{ it }}</span>
-            </li>
-          </ul>
-  
-          <div class="pack-actions">
-            <a class="btn primary" routerLink="/contact" (click)="trackCta('primary')">Demander un devis</a>
-            <div class="pack-note">Sans engagement • Priorités claires • Optimisation continue</div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-  
-  <!-- FAQ -->
-  <section class="section alt">
-    <div class="wrap">
-      <div class="head">
-        <h2>FAQ</h2>
-        <p>Les questions fréquentes avant de lancer des campagnes Google Ads.</p>
-      </div>
-  
-      <div class="faq">
-        <details *ngFor="let f of faqs">
-          <summary>{{ f.q }}</summary>
-          <p>{{ f.a }}</p>
-        </details>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Related -->
-  <section class="section">
-    <div class="wrap">
-      <div class="head">
-        <h2>Services complémentaires</h2>
-        <p>Pour augmenter la conversion : landing, SEO, tracking.</p>
-      </div>
-  
-      <div class="related">
-        <a class="rel" *ngFor="let r of related" [routerLink]="r.link">{{ r.title }} →</a>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Final CTA -->
-  <section class="cta-final">
-    <div class="wrap">
-      <div class="cta-box">
-        <div>
-          <h2>Prêt à générer des leads avec Google Ads ?</h2>
-          <p>Décrivez votre activité et recevez une estimation + un plan de campagne.</p>
-        </div>
-  
-        <div class="cta-actions">
-          <a class="btn primary" routerLink="/contact" (click)="trackCta('primary')">Demander un devis</a>
-          <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener" (click)="trackCta('whatsapp')">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a routerLink="/">Accueil</a> <span>›</span>
+      <a routerLink="/services/">Services</a> <span>›</span>
+      <span>Google Ads</span>
+    </nav>
+
+    <div class="hero-grid">
+      <div>
+        <div class="badge">Agence Marketing & Web Vynexstudio</div>
+
+        <h1>Agence Marketing Digital Google Ads | Génération de Leads</h1>
+
+        <p class="lead">
+          Vynexstudio est une <strong>agence marketing digitale et web spécialisée en Google Ads</strong>.
+          Nous aidons les entreprises à utiliser la <strong>publicité Google</strong> pour attirer du trafic qualifié,
+          générer des leads (appels, formulaires, WhatsApp) et améliorer leur retour sur investissement.
+          Notre approche combine stratégie marketing, <strong>gestion Google Ads</strong>, tracking précis
+          des conversions et optimisation continue.
+        </p>
+
+        <ul class="bullets">
+          <li> • Gestion complète de campagnes Google Ads par une agence marketing spécialisée</li>
+          <li> • Campagnes Search, Performance Max, Display et Remarketing</li>
+          <li> • Tracking conversions (GA4, Tag Manager, appels, WhatsApp)</li>
+          <li> • Optimisation continue orientée coût par lead et rentabilité</li>
+        </ul>
+
+        <div class="cta">
+          <a class="btn primary"
+             routerLink="/contact/"
+             (click)="trackCta('primary')">
+            Demander un devis
+          </a>
+
+          <a class="btn ghost"
+             [href]="whatsappLink"
+             target="_blank"
+             rel="noopener"
+             (click)="trackCta('whatsapp')">
             WhatsApp
+          </a>
+        </div>
+
+        <p class="micro">Search • Performance Max • Remarketing • Tracking conversions</p>
+      </div>
+
+      <div class="side">
+        <div class="side-card">
+          <div class="side-title">Objectif</div>
+          <p>Des leads qualifiés grâce à la publicité Google et une gestion optimisée.</p>
+
+          <div class="side-title">Pour qui ?</div>
+          <p>PME, services locaux, B2B, e-commerce et entreprises qui veulent accélérer.</p>
+
+          <div class="divider"></div>
+
+          <div class="side-title">Ce qu’on met en place</div>
+          <p>Tracking → campagnes → landing → optimisation continue.</p>
+
+          <a class="btn small" routerLink="/contact/" (click)="trackCta('primary')">
+            Obtenir une estimation
           </a>
         </div>
       </div>
     </div>
-  </section>
-  
+
+    <div class="hero-proof">
+      <div class="proof" *ngFor="let p of proofs">
+        <div class="proof-t">{{ p.title }}</div>
+        <div class="proof-d">{{ p.desc }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Industries -->
+<section class="section">
+  <div class="wrap">
+    <div class="head head-center">
+      <h2>Google Ads pour les secteurs qui veulent des demandes</h2>
+      <p>Notre agence marketing adapte la structure, les mots-clés et la landing selon votre activité.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card" *ngFor="let it of industries">
+        <div class="title">{{ it.title }}</div>
+        <div class="desc">{{ it.desc }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="section alt">
+  <div class="wrap">
+    <div class="head head-center">
+      <h2>Une gestion Google Ads orientée performance</h2>
+      <p>On ne cherche pas des clics, on cherche des conversions mesurables.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card" *ngFor="let f of features">
+        <div class="title">{{ f.title }}</div>
+        <div class="desc">{{ f.desc }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Packs -->
+<section class="section">
+  <div class="wrap">
+    <div class="head head-center">
+      <h2>Des offres claires</h2>
+      <p>Notre agence web pilote le budget chaque mois avec optimisation continue.</p>
+    </div>
+
+    <div class="packs premium">
+      <article class="pack" *ngFor="let p of packs" [class.featured]="p.featured">
+        <div class="pack-badge" *ngIf="p.featured">Recommandé</div>
+
+        <header class="pack-head pack-head-no-price">
+          <div class="pack-title">{{ p.title }}</div>
+        </header>
+
+        <div class="pack-who">{{ p.who }}</div>
+
+        <ul class="pack-list">
+          <li *ngFor="let it of p.includes">
+            <span class="check">✓</span>
+            <span>{{ it }}</span>
+          </li>
+        </ul>
+
+        <div class="pack-actions">
+          <a class="btn primary" routerLink="/contact" (click)="trackCta('primary')">Demander un devis</a>
+          <div class="pack-note">Sans engagement • Priorités claires • Optimisation continue</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section alt">
+  <div class="wrap">
+    <div class="head">
+      <h2>FAQ</h2>
+      <p>Les questions fréquentes avant de lancer des campagnes Google Ads.</p>
+    </div>
+
+    <div class="faq">
+      <details *ngFor="let f of faqs">
+        <summary>{{ f.q }}</summary>
+        <p>{{ f.a }}</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Related -->
+<section class="section">
+  <div class="wrap">
+    <div class="head">
+      <h2>Services complémentaires</h2>
+      <p>Pour augmenter la conversion : landing, SEO, tracking.</p>
+    </div>
+
+    <div class="related">
+      <a class="rel" *ngFor="let r of related" [routerLink]="r.link">{{ r.title }} →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="cta-final">
+  <div class="wrap">
+    <div class="cta-box">
+      <div>
+        <h2>Prêt à générer des leads avec Google Ads ?</h2>
+        <p>Décrivez votre activité et recevez une estimation + un plan de campagne.</p>
+      </div>
+
+      <div class="cta-actions">
+        <a class="btn primary" routerLink="/contact" (click)="trackCta('primary')">Demander un devis</a>
+        <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener" (click)="trackCta('whatsapp')">
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

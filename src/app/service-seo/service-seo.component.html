@@ -1,49 +1,71 @@
-<!-- HERO SERVICE -->
+<!-- HERO SERVICE SEO / AGENCE DIGITALE -->
 <section class="hero">
-    <div class="wrap">
-      <nav class="crumbs" aria-label="Breadcrumb">
-        <a routerLink="/">Accueil</a> <span>›</span>
-        <a routerLink="/services/">Services</a> <span>›</span>
-        <span>SEO</span>
-      </nav>
-  
-      <div class="hero-grid">
-        <div>
-          <div class="badge">Service Vynexstudio</div>
-          <h1>{{ heroTitle }}</h1>
-          <p class="lead">{{ heroSubtitle }}</p>
-  
-          <ul class="bullets">
-            <li *ngFor="let b of bullets"> • {{ b }}</li>
-          </ul>
-  
-          <div class="cta">
-            <a class="btn primary" routerLink="/contact">Demander un devis</a>
-            <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
-          </div>
-  
-          <p class="micro">Objectif : plus de visibilité, plus de leads, plus de clients.</p>
+  <div class="wrap">
+
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a routerLink="/">Accueil</a> <span>›</span>
+      <a routerLink="/services/">Services</a> <span>›</span>
+      <span>SEO & Marketing Digital</span>
+    </nav>
+
+    <div class="hero-grid">
+      <!-- LEFT -->
+      <div>
+        <div class="badge">Agence Digitale Vynexstudio</div>
+
+        <!-- H1 PRINCIPAL -->
+        <h1>Agence Digitale SEO au Maroc – Référencement Google orienté clients</h1>
+
+        <!-- PREMIER PARAGRAPHE SEO -->
+        <p class="lead">
+          Vynexstudio est une <strong>agence digitale spécialisée en marketing SEO et référencement Google</strong>.
+          Nous aidons les entreprises à augmenter leur visibilité sur Google, attirer du trafic qualifié
+          et transformer les visiteurs en clients grâce à une stratégie SEO complète : technique,
+          contenu, autorité et optimisation des conversions.
+        </p>
+
+        <!-- BULLETS (SIGNAL SEO + BUSINESS) -->
+        <ul class="bullets">
+          <li> • Audit SEO complet + plan d’action marketing clair</li>
+          <li> • Optimisation technique Google (vitesse, indexation, structure)</li>
+          <li> • Stratégie contenu SEO orientée services & mots-clés business</li>
+          <li> • SEO local (Casablanca, Marrakech, Rabat…) + Google Business Profile</li>
+        </ul>
+
+        <div class="cta">
+          <a class="btn primary" routerLink="/contact">Demander un devis</a>
+          <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">
+            WhatsApp
+          </a>
         </div>
-  
-        <div class="side">
-          <div class="side-card">
-            <div class="side-title">Pour qui ?</div>
-            <p>PME, services, e-commerce, artisans, cabinets, agences…</p>
-  
-            <div class="side-title">Objectif</div>
-            <p>Générer du trafic qualifié (clients) depuis Google.</p>
-  
-            <div class="divider"></div>
-  
-            <div class="side-title">Stratégie</div>
-            <p>Technique + Contenu + Autorité + Suivi</p>
-  
-            <a class="btn small" routerLink="/contact/">Obtenir une estimation</a>
-          </div>
+
+        <p class="micro">
+          Objectif : plus de visibilité Google • plus de trafic qualifié • plus de clients.
+        </p>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="side">
+        <div class="side-card">
+          <div class="side-title">Pour qui ?</div>
+          <p>PME, e-commerce, services, cabinets, entreprises locales et marques en croissance.</p>
+
+          <div class="side-title">Objectif</div>
+          <p>Faire du référencement Google un canal d’acquisition de clients.</p>
+
+          <div class="divider"></div>
+
+          <div class="side-title">Approche</div>
+          <p>Marketing digital + SEO technique + contenu + autorité + suivi des conversions.</p>
+
+          <a class="btn small" routerLink="/contact/">Obtenir une estimation</a>
         </div>
       </div>
     </div>
-  </section>
+
+  </div>
+</section>
+
   
   <!-- FEATURES -->
   <section class="section">

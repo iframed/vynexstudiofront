@@ -17,20 +17,20 @@
         </button>
 
         <div class="drop" *ngIf="openServices">
-          <a routerLink="/services/site-vitrine/" (click)="closeAll()">Site vitrine</a>
-          <a routerLink="/services/site-ecommerce/" (click)="closeAll()">Site e-commerce</a>
-          <a routerLink="/services/plateforme-web/" (click)="closeAll()">Plateforme web</a>
-          <a routerLink="/services/logiciel-gestion/" (click)="closeAll()">Logiciel de gestion</a>
-
+          <a routerLink="/services/creation-site-web/" (click)="closeAll()">Site web</a>
+          <a routerLink="/services/logiciel-gestion/" (click)="closeAll()">Logiciels de gestion</a>
+        
           <div class="sep"></div>
-
-          <a routerLink="/seo/" (click)="closeAll()">SEO</a>
-          <a routerLink="/googleAds/" (click)="closeAll()">Google Ads</a>
+        
+          <a routerLink="/services/seo/" (click)="closeAll()">SEO & Référencement</a>
+          <a routerLink="/services/google-ads/" (click)="closeAll()">Publicité Google (Google Ads)</a>
         </div>
+        
+        
       </div>
 
-      <a routerLink="/realisations/" routerLinkActive="active" (click)="closeAll()">Réalisations</a>
-      <a routerLink="/blog/" routerLinkActive="active" (click)="closeAll()">Actualite</a>
+      <a routerLink="/realisations/" routerLinkActive="active" (click)="closeAll()">Projets clients</a>
+      <a routerLink="/blog/" routerLinkActive="active" (click)="closeAll()">Actualités</a>
       <a routerLink="/a-propos/" routerLinkActive="active" (click)="closeAll()">À propos</a>
       <a routerLink="/contact/" routerLinkActive="active" class="hide-md" (click)="closeAll()">Contact</a>
     </nav>
@@ -63,17 +63,28 @@
     </button>
 
     <div class="mobile-sub" *ngIf="openServices">
-      <a class="mobile-subItem" routerLink="/services/site-vitrine/" (click)="closeAll()">Site vitrine</a>
-      <a class="mobile-subItem" routerLink="/services/site-ecommerce/" (click)="closeAll()">Site e-commerce</a>
-      <a class="mobile-subItem" routerLink="/services/plateforme-web/" (click)="closeAll()">Plateforme web</a>
-      <a class="mobile-subItem" routerLink="/services/logiciel-gestion/" (click)="closeAll()">Logiciel de gestion</a>
-      <a class="mobile-subItem" routerLink="/services/application-mobile/" (click)="closeAll()">Application mobile</a>
-      <a class="mobile-subItem" routerLink="/seo/" (click)="closeAll()">SEO</a>
-      <a class="mobile-subItem" routerLink="/googleAds/" (click)="closeAll()">Google Ads</a>
+      <a class="mobile-subItem" routerLink="/services/creation-site-web/" (click)="closeAll()">
+        Création de site web
+      </a>
+    
+      <a class="mobile-subItem" routerLink="/services/logiciel-gestion/" (click)="closeAll()">
+        Logiciel de gestion
+      </a>
+    
+      <div class="sep"></div>
+    
+      <a class="mobile-subItem" routerLink="/services/seo/" (click)="closeAll()">
+        SEO & Référencement
+      </a>
+    
+      <a class="mobile-subItem" routerLink="/services/google-ads/" (click)="closeAll()">
+        Publicité Google (Google Ads)
+      </a>
     </div>
+    
 
     <a class="mobile-item" routerLink="/realisations/" (click)="closeAll()">
-      <span>Realisations</span>
+      <span>Projets clients</span>
       
     </a>
 

@@ -12,7 +12,6 @@ declare global {
   }
 }
 
-
 type FaqItem = { q: string; a: string };
 
 @Component({
@@ -23,24 +22,16 @@ type FaqItem = { q: string; a: string };
   styleUrls: ['./contact.component.css'],
 })
 export class ContactComponent implements OnInit {
-
-
   companyName = 'Vynexstudio';
   siteUrl = 'https://vynexstudio.com';
-
   whatsappNumber = '+212644071444';
-
- 
-  
-
   contactEmail = 'contact@vynexstudio.ma';
   contactPhone = '+212644071444';
   city = 'Casablanca';
   country = 'MA';
-
   slug = '/contact/';
   canonicalUrl = this.siteUrl + this.slug;
-   
+
   metaTitle = 'Contact Vynexstudio | Devis site web, e-commerce, plateforme, SEO & Ads';
   metaDescription =
     "Contactez Vynexstudio pour votre projet : site vitrine, e-commerce, plateforme web, logiciel, SEO ou Google Ads. Réponse rapide par formulaire ou WhatsApp. Devis gratuit.";
@@ -50,10 +41,22 @@ export class ContactComponent implements OnInit {
     "Expliquez votre besoin et recevez une estimation claire. Réponse rapide par WhatsApp ou formulaire.";
 
   faqs: FaqItem[] = [
-    { q: 'Combien coûte un site ou une plateforme ?', a: "Le prix dépend du scope. Après un échange, on vous donne une estimation claire." },
-    { q: 'En combien de temps vous livrez ?', a: "Un site peut sortir en 1–3 semaines. Une plateforme dépend des modules (MVP puis évolutions)." },
-    { q: 'Travaillez-vous partout au Maroc ?', a: "Oui, on travaille à distance (Marrakech, Casablanca, Rabat, etc.)." },
-    { q: 'Vous proposez SEO et Google Ads ?', a: "Oui : SEO long terme + Ads résultats rapides. On peut combiner les deux." },
+    {
+      q: 'Combien coûte un site ou une plateforme ?',
+      a: "Le prix dépend du scope. Après un échange, on vous donne une estimation claire.",
+    },
+    {
+      q: 'En combien de temps vous livrez ?',
+      a: "Un site peut sortir en 1–3 semaines. Une plateforme dépend des modules (MVP puis évolutions).",
+    },
+    {
+      q: 'Travaillez-vous partout au Maroc ?',
+      a: 'Oui, on travaille à distance (Marrakech, Casablanca, Rabat, etc.).',
+    },
+    {
+      q: 'Vous proposez SEO et Google Ads ?',
+      a: 'Oui : SEO long terme + Ads résultats rapides. On peut combiner les deux.',
+    },
   ];
 
   services = [
@@ -115,21 +118,25 @@ export class ContactComponent implements OnInit {
       });
     }
   }
-  
-  
-  
 
   // ✅ WhatsApp link intelligent avec données du form
   get whatsappLink(): string {
     const v = this.form.getRawValue();
-    const serviceLabel = this.services.find((s) => s.value === v.service)?.label ?? (v.service ?? '-');
-    const budgetLabel = this.budgets.find((b) => b.value === v.budget)?.label ?? (v.budget ?? '-');
+    const serviceLabel =
+      this.services.find((s) => s.value === v.service)?.label ?? (v.service ?? '-');
+    const budgetLabel =
+      this.budgets.find((b) => b.value === v.budget)?.label ?? (v.budget ?? '-');
 
     const text = encodeURIComponent(
-      `Bonjour Vynex,\nJe souhaite un devis.\n\n` +
-        `Nom: ${v.name || '-'}\nEmail: ${v.email || '-'}\nTéléphone: ${v.phone || '-'}\n` +
-        `Service: ${serviceLabel}\nBudget: ${budgetLabel}\n` +
-        `Message: ${v.message || '-'}`
+      `Bonjour Vynex,
+Je souhaite un devis.
+
+Nom: ${v.name || '-'}
+Email: ${v.email || '-'}
+Téléphone: ${v.phone || '-'}
+Service: ${serviceLabel}
+Budget: ${budgetLabel}
+Message: ${v.message || '-'}`
     );
 
     const phone = this.whatsappNumber.replace(/\s+/g, '').replace('+', '');
@@ -154,25 +161,24 @@ export class ContactComponent implements OnInit {
       nom: v.name ?? '',
       email: v.email ?? '',
       telephone: v.phone ?? undefined,
-      need: v.service ?? 'autre',          // ✅ service -> need
+      need: v.service ?? 'autre', // ✅ service -> need
       budget: v.budget ?? 'a-discuter',
       message: v.message ?? '',
-      source: 'contact',                   // optionnel (si backend ignore OK)
+      source: 'contact', // optionnel (si backend ignore OK)
     };
 
     this.contactService.sendContact(payload).subscribe({
       next: () => {
         this.loading = false;
         this.sent = true;
-      
+
         // 🔥 TRACK CONVERSION FORMULAIRE
         if (typeof window !== 'undefined' && window.gtag) {
           window.gtag('event', 'generate_lead', {
             method: 'contact_form',
           });
-          
         }
-      
+
         this.form.reset({
           name: '',
           email: '',
@@ -182,10 +188,9 @@ export class ContactComponent implements OnInit {
           message: '',
         });
       },
-      
       error: () => {
         this.loading = false;
-        this.errorMsg = "Envoi impossible. Contactez-nous directement via WhatsApp.";
+        this.errorMsg = 'Envoi impossible. Contactez-nous directement via WhatsApp.';
       },
     });
   }

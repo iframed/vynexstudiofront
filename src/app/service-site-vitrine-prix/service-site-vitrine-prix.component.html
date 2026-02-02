@@ -1,0 +1,210 @@
+<!-- service-site-vitrine-prix.component.html -->
+<section class="hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a routerLink="/">Accueil</a> <span>›</span>
+        <a routerLink="/services">Services</a> <span>›</span>
+        <a routerLink="/services/site-vitrine">Site vitrine</a> <span>›</span>
+        <span>Prix</span>
+      </nav>
+  
+      <div class="hero-grid">
+        <div>
+          <div class="badge">Prix • Vynexstudio</div>
+  
+          <h1>{{ heroTitle }}</h1>
+  
+          <p class="lead">
+            {{ heroSubtitle }}
+          </p>
+  
+          <ul class="bullets">
+            <li *ngFor="let b of bullets">• {{ b }}</li>
+          </ul>
+  
+          <div class="cta">
+            <a class="btn primary" routerLink="/contact/">Demander un devis</a>
+            <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn ghost" routerLink="/services/site-vitrine/">Voir le service</a>
+          </div>
+  
+          <p class="micro">Transparence • Budget clair • Estimation rapide</p>
+        </div>
+  
+        <div class="side">
+          <div class="side-card">
+            <div class="side-title">Budget moyen</div>
+            <p>À partir de <strong>{{ fromPrice }} DH</strong> selon pages et options.</p>
+  
+            <div class="side-title">Délais</div>
+            <p>En général <strong>7–14 jours</strong> (selon validations).</p>
+  
+            <div class="divider"></div>
+  
+            <div class="side-title">Objectif</div>
+            <p>Un site vitrine qui génère des demandes : WhatsApp, appels, formulaires.</p>
+  
+            <a class="btn small" routerLink="/contact/">Obtenir une estimation</a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="hero-split">
+        <div class="hero-box">
+          <div class="hero-box-title">Inclus dans un site vitrine</div>
+          <ul class="hero-mini">
+            <li>✔ Accueil + services + contact</li>
+            <li>✔ Design moderne & mobile-friendly</li>
+            <li>✔ Formulaire + WhatsApp + CTA</li>
+            <li>✔ Base SEO technique + performance</li>
+          </ul>
+        </div>
+  
+        <div class="hero-box">
+          <div class="hero-box-title">Ce qui fait varier le prix</div>
+          <ul class="hero-mini">
+            <li>• Nombre de pages & sections</li>
+            <li>• Contenu (textes, images, traduction)</li>
+            <li>• Fonctionnalités (blog, réservation…)</li>
+            <li>• SEO avancé + tracking conversions</li>
+          </ul>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+  
+  <!-- PRICING (PACKS) -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head head-center">
+        <h2>Prix site vitrine au Maroc</h2>
+        <p>
+          Voici des <strong>repères de tarifs</strong> pour estimer un budget.
+          Le prix final dépend du nombre de pages, du contenu et des fonctionnalités (réservation, blog, etc.).
+        </p>
+      </div>
+  
+      <div class="packs premium">
+        <article class="pack" *ngFor="let p of packs" [class.featured]="p.featured">
+          <div class="pack-badge" *ngIf="p.featured">Le plus demandé</div>
+  
+          <header class="pack-head">
+            <div class="pack-title">{{ p.title }}</div>
+  
+            <div class="pack-price">
+              <span class="amount">{{ p.price }}</span>
+              <span class="currency">DH</span>
+            </div>
+          </header>
+  
+          <div class="pack-who">{{ p.who }}</div>
+  
+          <ul class="pack-list">
+            <li *ngFor="let it of p.includes">
+              <span class="check">✓</span>
+              <span>{{ it }}</span>
+            </li>
+          </ul>
+  
+          <div class="pack-actions">
+            <a class="btn primary" routerLink="/contact/">Contactez-nous</a>
+            <div class="pack-note">Devis clair • Estimation rapide • Sans engagement</div>
+          </div>
+        </article>
+      </div>
+  
+      <div class="note">
+        <strong>Note :</strong> les tarifs sont des repères. Une estimation exacte dépend du nombre de pages,
+        du contenu, et des options (SEO, tracking, réservation, blog…).
+      </div>
+    </div>
+  </section>
+  
+  <!-- WHAT AFFECTS PRICE -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="head head-center">
+        <h2>Qu’est-ce qui influence le prix d’un site vitrine ?</h2>
+        <p>
+          Voici les facteurs principaux qui font varier le budget d’un site vitrine au Maroc.
+        </p>
+      </div>
+  
+      <div class="grid">
+        <div class="card" *ngFor="let f of factors">
+          <div class="title">{{ f.title }}</div>
+          <div class="desc">{{ f.desc }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- PRICE TABLE -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head head-center">
+        <h2>Tableau rapide : budget selon le besoin</h2>
+        <p>Une vue simple pour se situer rapidement.</p>
+      </div>
+  
+      <div class="table-wrap" role="region" aria-label="Tableau des tarifs site vitrine">
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th>Besoin</th>
+              <th>Idéal si…</th>
+              <th>Budget</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of table">
+              <td><strong>{{ row.need }}</strong></td>
+              <td>{{ row.for }}</td>
+              <td>{{ row.price }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+      <div class="cta-row">
+        <a class="btn primary" routerLink="/contact/">Demander une estimation</a>
+        <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FAQ -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="head head-center">
+        <h2>FAQ prix site vitrine</h2>
+        <p>Les réponses aux questions budget les plus fréquentes.</p>
+      </div>
+  
+      <div class="faq">
+        <details *ngFor="let f of faqs">
+          <summary>{{ f.q }}</summary>
+          <p>{{ f.a }}</p>
+        </details>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="wrap">
+      <div class="cta-box">
+        <div>
+          <h2>Vous voulez un prix exact ?</h2>
+          <p>Envoyez : activité + nombre de pages + options. On vous répond rapidement.</p>
+        </div>
+  
+        <div class="cta-actions">
+          <a class="btn primary" routerLink="/contact/">Demander un devis</a>
+          <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  

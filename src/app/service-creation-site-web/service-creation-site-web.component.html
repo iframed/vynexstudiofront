@@ -1,0 +1,226 @@
+<!-- service-creation-site-web.component.html -->
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a routerLink="/">Accueil</a> <span>›</span>
+      <a routerLink="/services/">Services</a> <span>›</span>
+      <span>Création de site web</span>
+    </nav>
+
+    <div class="hero-grid">
+      <!-- LEFT -->
+      <div>
+        <div class="badge">Service Web Vynexstudio</div>
+
+        <h1>{{ heroTitle }}</h1>
+        <p class="lead">{{ heroSubtitle }}</p>
+
+        <ul class="bullets">
+          <li *ngFor="let b of bullets"> • {{ b }}</li>
+        </ul>
+
+        <div class="cta">
+          <a class="btn primary" routerLink="/contact/">Demander un devis</a>
+          <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">
+            WhatsApp
+          </a>
+        </div>
+
+        <p class="micro">
+          Réponse rapide • Devis clair • Base SEO + tracking inclus
+        </p>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="side">
+        <div class="side-card">
+          <div class="side-title">Pour qui ?</div>
+          <p>PME, indépendants, services, cabinets, artisans, commerces…</p>
+
+          <div class="side-title">Objectif</div>
+          <p>Choisir la bonne solution et créer un site qui génère des clients.</p>
+
+          <div class="divider"></div>
+
+          <div class="side-title">Délais</div>
+          <p>Vitrine 7–14 jours • E-commerce 2–5 semaines • Plateforme sur planning.</p>
+
+          <a class="btn small" routerLink="/contact/">Obtenir une estimation</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section">
+  <div class="wrap">
+    <h2>Pourquoi choisir Vynexstudio pour votre création de site web ?</h2>
+
+    <p>
+      Nous créons des <strong>sites web professionnels au Maroc</strong> conçus pour un objectif clair :
+      <strong>générer des demandes</strong> (WhatsApp, formulaires, appels) ou <strong>vendre en ligne</strong>.
+      Que vous ayez besoin d’un <strong>site vitrine</strong>, d’un <strong>site e-commerce</strong>
+      ou d’une <strong>plateforme web sur-mesure</strong>, nous vous conseillons la solution la plus rentable
+      pour votre activité.
+    </p>
+
+    <p>
+      Chaque projet inclut un <strong>design moderne</strong>, une performance technique solide
+      (vitesse, sécurité), une <strong>base SEO</strong> (structure, titles, sitemap, indexation)
+      et l’intégration des éléments de conversion (formulaire, WhatsApp, appels).
+      Vous recevez un site prêt à fonctionner, prêt à être trouvé sur Google et prêt à générer des clients.
+    </p>
+
+    <p>
+      Basés au Maroc, nous travaillons avec des entreprises à <strong>Casablanca</strong>,
+      <strong>Rabat</strong>, <strong>Marrakech</strong> et partout dans le royaume.
+      <strong>Demandez un devis</strong> et obtenez une estimation rapide selon votre besoin.
+    </p>
+
+    <div class="cta" style="margin-top:14px">
+      <a class="btn primary" routerLink="/contact/">Demander un devis</a>
+      <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- OFFRES -->
+<section class="section alt">
+  <div class="wrap">
+    <div class="head head-center">
+      <h2>Choisissez le type de site web</h2>
+      <p>
+        Vitrine pour recevoir des demandes, e-commerce pour vendre, plateforme pour un espace client ou un SaaS.
+        Chaque option est conçue pour la performance et la conversion.
+      </p>
+    </div>
+
+    <div class="packs premium">
+      <article class="pack" *ngFor="let o of webOffers" [class.featured]="o.featured">
+        <div class="pack-badge" *ngIf="o.badge">{{ o.badge }}</div>
+
+        <header class="pack-head">
+          <div class="pack-title">{{ o.title }}</div>
+          <div class="hint">{{ o.hint }}</div>
+        </header>
+
+        <div class="pack-who">{{ o.forWho }}</div>
+
+        <ul class="pack-list">
+          <li *ngFor="let it of o.points">
+            <span class="check">✓</span>
+            <span>{{ it }}</span>
+          </li>
+        </ul>
+
+        <div class="pack-actions">
+          <a class="btn primary" [routerLink]="o.link">Voir les détails</a>
+          <div class="pack-note">Optimisé SEO • Mobile • Conversion</div>
+        </div>
+      </article>
+    </div>
+
+    <div style="margin-top:14px">
+      <div class="related">
+        <a class="rel" routerLink="/services/seo/">SEO</a>
+        <a class="rel" routerLink="/google-ads/">Google Ads</a>
+        <a class="rel" routerLink="/contact/">Devis</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section">
+  <div class="wrap">
+    <div class="head head-center">
+      <h2>Notre process (simple & rapide)</h2>
+      <p>
+        Une méthode claire, avec validations rapides, pour livrer un site
+        <strong>pro</strong>, <strong>performant</strong> et <strong>prêt à convertir</strong>.
+      </p>
+    </div>
+
+    <div class="steps">
+      <div class="step" *ngFor="let s of steps">
+        <div class="n">{{ s.n }}</div>
+        <div>
+          <div class="t">{{ s.title }}</div>
+          <div class="d">{{ s.desc }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIX -->
+<section class="section alt">
+  <div class="wrap">
+    <div class="head head-center">
+      <h2>Budget : repères simples</h2>
+      <p>
+        Le prix dépend du nombre de pages, du contenu et des fonctionnalités
+        (paiement, réservation, espace client). Voici des repères :
+      </p>
+    </div>
+
+    <div class="grid">
+      <div class="card" *ngFor="let p of priceHints">
+        <div class="title">{{ p.title }}</div>
+        <div class="desc">{{ p.value }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCAL -->
+<section class="section">
+  <div class="wrap">
+    <div class="head head-center">
+      <h2>Création de site web au Maroc</h2>
+      <p>
+        Nous travaillons avec des entreprises à Marrakech, Casablanca, Rabat
+        et partout au Maroc — ainsi qu’à distance.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section alt">
+  <div class="wrap">
+    <div class="head">
+      <h2>FAQ</h2>
+      <p>Les réponses aux questions les plus fréquentes.</p>
+    </div>
+
+    <div class="faq">
+      <details *ngFor="let f of faqs">
+        <summary>{{ f.q }}</summary>
+        <p>{{ f.a }}</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <div class="wrap">
+    <div class="cta-box">
+      <div>
+        <h2>Prêt à lancer votre site ?</h2>
+        <p>Envoyez votre activité + objectif, on vous conseille la meilleure option.</p>
+      </div>
+
+      <div class="cta-actions">
+        <a class="btn primary" routerLink="/contact/">Demander un devis</a>
+        <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>

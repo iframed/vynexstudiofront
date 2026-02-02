@@ -38,8 +38,8 @@ export class FooterComponent {
     { label: 'E-commerce', path: '/services/site-ecommerce/' },
     { label: 'Plateforme web', path: '/services/plateforme-web/' },
     { label: 'Logiciel de gestion', path: '/services/logiciel-gestion/' },
-    { label: 'SEO', path: '/seo/' },
-    { label: 'Google Ads', path: '/googleAds/' },
+    { label: 'SEO', path: '/services/seo/' },
+    { label: 'Google Ads', path: '/services/googleAds/' },
   ];
 
   linksLegal: NavLink[] = [

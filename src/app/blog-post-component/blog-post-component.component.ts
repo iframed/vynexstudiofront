@@ -358,42 +358,52 @@ export class BlogPostComponent implements OnInit, OnDestroy {
   private applySeoForPost(post: Post): void {
     const title = post.seoTitle ?? post.title;
     const desc = post.seoDescription ?? post.excerpt;
-
+  
+    const pageUrl = this.getCanonicalUrl(post.slug);
+    const ogImg = this.absoluteUrl(post.cover);
+  
     this.title.setTitle(title);
     this.meta.updateTag({ name: 'description', content: desc });
     this.meta.updateTag({ name: 'robots', content: 'index,follow' });
-
+  
     // OpenGraph
     this.meta.updateTag({ property: 'og:type', content: 'article' });
     this.meta.updateTag({ property: 'og:site_name', content: this.companyName });
     this.meta.updateTag({ property: 'og:title', content: title });
     this.meta.updateTag({ property: 'og:description', content: desc });
-    this.meta.updateTag({ property: 'og:url', content: this.getCanonicalUrl(post.slug) });
-
-    const ogImg = this.absoluteUrl(post.cover);
+    this.meta.updateTag({ property: 'og:url', content: pageUrl });
+  
     this.meta.updateTag({ property: 'og:image', content: ogImg });
-    if (post.coverAlt) this.meta.updateTag({ property: 'og:image:alt', content: post.coverAlt });
-
-    // Article dates (OG)
+    this.meta.updateTag({ property: 'og:image:alt', content: post.coverAlt ?? title });
+  
+    // Mets ces 2 lignes seulement si tes images sont bien en 1200x630
+    this.meta.updateTag({ property: 'og:image:width', content: '1200' });
+    this.meta.updateTag({ property: 'og:image:height', content: '630' });
+  
+    // Article dates
     if (post.datePublishedISO) {
       this.meta.updateTag({ property: 'article:published_time', content: post.datePublishedISO });
     }
     if (post.dateModifiedISO) {
       this.meta.updateTag({ property: 'article:modified_time', content: post.dateModifiedISO });
     }
-
+  
     // Twitter
     this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
     this.meta.updateTag({ name: 'twitter:title', content: title });
     this.meta.updateTag({ name: 'twitter:description', content: desc });
     this.meta.updateTag({ name: 'twitter:image', content: ogImg });
-
-    // ✅ bonus
+  
+    // Bonus
     this.meta.updateTag({ name: 'theme-color', content: '#0b1220' });
+
+  
+
   }
+  
 
   private applyNotFoundSeo(slug: string): void {
-    const title = 'Article introuvable | Vynex';
+    const title = 'Article introuvable | Vynexstudio';
     const desc = "Cet article n'existe pas (ou a été supprimé). Découvrez nos autres contenus.";
 
     this.title.setTitle(title);
@@ -404,6 +414,11 @@ export class BlogPostComponent implements OnInit, OnDestroy {
     this.meta.updateTag({ property: 'og:title', content: title });
     this.meta.updateTag({ property: 'og:description', content: desc });
     this.meta.updateTag({ property: 'og:url', content: this.siteUrl + '/blog/' + slug });
+
+    const ogImg = this.siteUrl + '/seo.webp';
+this.meta.updateTag({ property: 'og:image', content: ogImg });
+this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+this.meta.updateTag({ name: 'twitter:image', content: ogImg });
   }
 
   private setCanonical(url: string): void {
@@ -466,7 +481,7 @@ export class BlogPostComponent implements OnInit, OnDestroy {
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Accueil', item: this.siteUrl + '/' },
-        { '@type': 'ListItem', position: 2, name: 'Blog', item: this.siteUrl + '/blog' },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: this.siteUrl + '/blog/' },
         { '@type': 'ListItem', position: 3, name: post.title, item: this.getCanonicalUrl(post.slug) },
       ],
     };

@@ -28,11 +28,11 @@ export class ServiceSeoComponent implements OnInit {
   canonicalUrl = this.siteUrl + this.slug;
 
   // SEO (page)
-  metaTitle = 'Agence SEO au Maroc | Vynexstudio (Référencement naturel, trafic & leads)';
+  metaTitle = 'Agence Digital SEO au Maroc | Vynexstudio (Référencement naturel, trafic & leads)';
   metaDescription =
-    "Vynex améliore votre visibilité sur Google : audit SEO, optimisation technique, contenu, netlinking, SEO local (Marrakech/Casa…). Objectif : plus de trafic et plus de clients. Devis gratuit.";
+    "Vynexstudio améliore votre visibilité sur Google : audit SEO, optimisation technique, contenu, netlinking, SEO local (Marrakech/Casa…). Objectif : plus de trafic et plus de clients. Devis gratuit.";
 
-  heroTitle = 'Agence SEO au Maroc (Référencement naturel)';
+  heroTitle = 'Agence digital SEO au Maroc (Référencement naturel)';
   heroSubtitle =
     "Augmentez votre visibilité sur Google et recevez plus de demandes clients. Audit, optimisation technique, contenu, SEO local et stratégie durable.";
 

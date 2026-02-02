@@ -26,11 +26,11 @@ export class AboutComponent implements OnInit {
   slug = '/a-propos/';
   canonicalUrl = this.siteUrl + this.slug;
 
-  metaTitle = 'À propos de Vynex | Agence web, logiciels & SEO au Maroc';
+  metaTitle = 'À propos de Vynexstudio | Agence web, logiciels & SEO au Maroc';
   metaDescription =
-    "Vynex accompagne les entreprises au Maroc dans la création de sites web, plateformes, logiciels et stratégie SEO/Ads. Objectif : croissance, crédibilité et conversion.";
+    "Vynexstudio accompagne les entreprises au Maroc dans la création de sites web, plateformes, logiciels et stratégie SEO/Ads. Objectif : croissance, crédibilité et conversion.";
 
-  heroTitle = 'À propos de Vynexstudio';
+  heroTitle = 'Vynexstudio';
   heroSubtitle =
     "Nous créons des solutions digitales modernes (sites web, e-commerce, plateformes, logiciels) et nous optimisons votre acquisition (SEO & Ads). Notre objectif : vous apporter des résultats concrets.";
 
@@ -78,8 +78,8 @@ export class AboutComponent implements OnInit {
 
   faqs: FaqItem[] = [
     {
-      q: 'Vynex est une agence ou une équipe freelance ?',
-      a: "Vynex est une équipe orientée delivery : design, dev et acquisition (SEO/Ads) avec un process clair.",
+      q: 'Vynexstudio est une agence ou une équipe freelance ?',
+      a: "Vynexstudio est une équipe orientée delivery : design, dev et acquisition (SEO/Ads) avec un process clair.",
     },
     {
       q: 'Travaillez-vous uniquement au Maroc ?',
@@ -100,7 +100,7 @@ export class AboutComponent implements OnInit {
   ];
 
   get whatsappLink(): string {
-    const text = encodeURIComponent('Bonjour Vynex, je souhaite discuter de mon projet.');
+    const text = encodeURIComponent('Bonjour Vynexstudio, je souhaite discuter de mon projet.');
     const phone = this.whatsappNumber.replace(/\s+/g, '').replace('+', '');
     return `https://wa.me/${phone}?text=${text}`;
   }

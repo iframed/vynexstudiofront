@@ -6,7 +6,7 @@ import { RouterLink } from '@angular/router';
 type FaqItem = { q: string; a: string };
 type Feature = { title: string; desc: string };
 type Step = { n: string; title: string; desc: string };
-type Pack = { title: string;price: number; priceHint: string; who: string; includes: string[] };
+type Pack = { title: string;  priceHint: string; who: string; includes: string[] };
 
 @Component({
   selector: 'app-service-site-vitrine',
@@ -29,9 +29,11 @@ export class ServiceSiteVitrineComponent implements OnInit {
   canonicalUrl = this.siteUrl + this.slug;
 
   // SEO
-  metaTitle = 'Création de site vitrine au Maroc | Vynex (Design, SEO, Conversion)';
+  metaTitle = 'Création de site web vitrine au Maroc | Vynexstudio (Design, SEO, Conversion)';
   metaDescription =
-    "Vynex crée des sites vitrines modernes au Maroc : design premium, performance, SEO, formulaire & WhatsApp, tracking. Idéal pour générer des clients. Devis gratuit.";
+    "Vynexstudio crée des sites web vitrines modernes au Maroc : design premium, performance, SEO, formulaire & WhatsApp, tracking. Idéal pour générer des clients. Devis gratuit.";
+
+  ogImage = `${this.siteUrl}/VynexStudio%20-%20AgenceWebauMaroc.png`;
 
   // Page content
   heroTitle = 'Création de site vitrine au Maroc';
@@ -65,13 +67,12 @@ export class ServiceSiteVitrineComponent implements OnInit {
   packs: Pack[] = [
     {
       title: 'Vitrine Essentiel',
-      price: 1200,
+      
       priceHint: 'Idéal pour démarrer',
       who: 'Indépendants & petites entreprises',
       includes: [
         '1 page accueil complète',
         'WhatsApp',
-        
         'Mise en ligne + support initial',
         'Nom de domaine inclus (1 an)',
         'Hébergement inclus (1 an)',
@@ -79,7 +80,7 @@ export class ServiceSiteVitrineComponent implements OnInit {
     },
     {
       title: 'Vitrine Pro',
-      price: 1700,
+     
       priceHint: 'Le meilleur pour convertir',
       who: 'PME & services (lead generation)',
       includes: [
@@ -93,12 +94,12 @@ export class ServiceSiteVitrineComponent implements OnInit {
     },
     {
       title: 'Vitrine SEO+',
-      price: 3500,
+      
       priceHint: 'Pour viser Google',
       who: 'Entreprises qui veulent du trafic',
       includes: [
         'Structure multi-pages SEO (1 service = 1 page)',
-        'WhatsApp +formulaires',
+        'WhatsApp + formulaires',
         'FAQ schema + maillage interne',
         'Pages locales (Marrakech/Casa…) si besoin',
         'Optimisation vitesse + sécurité',
@@ -139,7 +140,9 @@ export class ServiceSiteVitrineComponent implements OnInit {
   ngOnInit(): void {
     this.applySeo();
     this.setCanonical();
-    this.injectJsonLd();
+
+    // ✅ JSON-LD dans <head> (comme e-commerce)
+    this.injectServiceJsonLd();
     this.injectFaqJsonLd();
     this.injectBreadcrumbJsonLd();
   }
@@ -149,15 +152,19 @@ export class ServiceSiteVitrineComponent implements OnInit {
     this.meta.updateTag({ name: 'description', content: this.metaDescription });
     this.meta.updateTag({ name: 'robots', content: 'index,follow' });
 
-    // OG / Twitter
+    // OpenGraph
     this.meta.updateTag({ property: 'og:type', content: 'website' });
     this.meta.updateTag({ property: 'og:site_name', content: this.companyName });
     this.meta.updateTag({ property: 'og:title', content: this.metaTitle });
     this.meta.updateTag({ property: 'og:description', content: this.metaDescription });
     this.meta.updateTag({ property: 'og:url', content: this.canonicalUrl });
+    this.meta.updateTag({ property: 'og:image', content: this.ogImage });
+
+    // Twitter
     this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
     this.meta.updateTag({ name: 'twitter:title', content: this.metaTitle });
     this.meta.updateTag({ name: 'twitter:description', content: this.metaDescription });
+    this.meta.updateTag({ name: 'twitter:image', content: this.ogImage });
   }
 
   private setCanonical(): void {
@@ -170,7 +177,11 @@ export class ServiceSiteVitrineComponent implements OnInit {
     link.setAttribute('href', this.canonicalUrl);
   }
 
-  private injectJsonLd(): void {
+  // ===========================
+  // ✅ JSON-LD injections (HEAD)
+  // ===========================
+
+  private injectServiceJsonLd(): void {
     const id = 'jsonld-vynex-service-vitrine';
     const existing = this.doc.getElementById(id);
     if (existing) existing.remove();
@@ -178,16 +189,12 @@ export class ServiceSiteVitrineComponent implements OnInit {
     const jsonLd = {
       '@context': 'https://schema.org',
       '@type': 'Service',
-      name: 'Création de site vitrine',
-      provider: {
-        '@type': 'Organization',
-        name: this.companyName,
-        url: this.siteUrl,
-      },
-      areaServed: 'MA',
-      serviceType: 'Web Design / Développement Web',
-      url: this.canonicalUrl,
+      name: 'Création de site vitrine au Maroc',
+      serviceType: 'Création de site vitrine',
       description: this.metaDescription,
+      provider: { '@type': 'Organization', name: this.companyName, url: this.siteUrl },
+      areaServed: 'MA',
+      url: this.canonicalUrl,
     };
 
     const script = this.doc.createElement('script');
@@ -228,24 +235,9 @@ export class ServiceSiteVitrineComponent implements OnInit {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: 'Accueil',
-          item: this.siteUrl + '/',
-        },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          name: 'Services',
-          item: this.siteUrl + '/services',
-        },
-        {
-          '@type': 'ListItem',
-          position: 3,
-          name: 'Site vitrine',
-          item: this.canonicalUrl,
-        },
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: this.siteUrl + '/' },
+        { '@type': 'ListItem', position: 2, name: 'Services', item: this.siteUrl + '/services/' },
+        { '@type': 'ListItem', position: 3, name: 'Site vitrine', item: this.canonicalUrl },
       ],
     };
 

@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+import { ServiceSiteEcommercePrixComponent } from './service-site-ecommerce-prix/service-site-ecommerce-prix.component';
+import { ServiceSiteVitrinePrixComponent } from './service-site-vitrine-prix/service-site-vitrine-prix.component';
 
 export const routes: Routes = [
   // Home (ne pas précharger, c'est la page initiale)
@@ -22,7 +24,7 @@ export const routes: Routes = [
       import('./contact/contact.component').then((m) => m.ContactComponent),
   },
   {
-    path: 'googleAds',
+    path: 'services/google-ads',
     data: { preload: true },
     loadComponent: () =>
       import('./service-google-ads/service-google-ads.component').then(
@@ -92,7 +94,7 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'seo',
+    path: 'services/seo',
     data: { preload: true },
     loadComponent: () =>
       import('./service-seo/service-seo.component').then(
@@ -111,4 +113,20 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./login/login.component').then((m) => m.LoginComponent),
   },
+
+
+  {
+    path: 'services/creation-site-web',
+    data: { preload: true },
+    loadComponent: () =>
+      import('./service-creation-site-web/service-creation-site-web.component')
+        .then(m => m.ServiceCreationSiteWebComponent),
+  },
+
+  { path: 'services/site-ecommerce/prix', component: ServiceSiteEcommercePrixComponent },
+  {
+    path: 'services/site-vitrine/prix',
+    component: ServiceSiteVitrinePrixComponent,
+  }
+  
 ];

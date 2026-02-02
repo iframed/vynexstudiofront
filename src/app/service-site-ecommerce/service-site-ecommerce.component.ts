@@ -28,7 +28,7 @@ export class ServiceSiteEcommerceComponent implements OnInit {
   canonicalUrl = this.siteUrl + this.slug;
 
   // SEO
-  metaTitle = 'Création de site e-commerce au Maroc | Vynex (Ventes, Paiement, SEO)';
+  metaTitle = 'Création de site e-commerce au Maroc | Vynexstudio (Ventes, Paiement, SEO)';
   metaDescription =
     "Vynex crée des sites e-commerce au Maroc : boutique rapide, paiement, livraison, catalogue, tracking, SEO et Google Ads. Un tunnel optimisé pour vendre. Devis gratuit.";
 

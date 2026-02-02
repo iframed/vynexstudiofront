@@ -1,60 +1,101 @@
+<!-- HERO (inchangé) -->
 <section class="hero">
-    <div class="wrap">
-      <nav class="crumbs" aria-label="Breadcrumb">
-        <a routerLink="/">Accueil</a> <span>›</span>
-        <span>Services</span>
-      </nav>
-  
-      <div class="hero-inner">
-        <div class="badge">Vynexstudio</div>
-        <h1>{{ heroTitle }}</h1>
-        <p class="lead">{{ heroSubtitle }}</p>
-  
-        <div class="cta">
-          <a class="btn primary" routerLink="/contact/">Demander un devis</a>
-          <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
-        </div>
-  
-        <p class="micro">Plus de demandes • Plus de contacts • Plus d’opportunités</p>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a routerLink="/">Accueil</a> <span>›</span>
+      <span>Services</span>
+    </nav>
 
+    <div class="hero-inner">
+      <div class="badge">Agence web à Casablanca</div>
+
+      <h1>Agence web à Casablanca : création de sites web & services web</h1>
+
+      <div class="intro-text">
+        <p>
+          <strong>Vynexstudio</strong> est une <strong>agence web</strong> basée à
+          <strong>Casablanca</strong>. Nous créons des <strong>sites internet</strong>
+          modernes et performants, et nous proposons des <strong>services web</strong>
+          orientés résultats : plus de demandes, plus d’appels et plus de contacts.
+        </p>
+
+        <p>
+          Que vous ayez besoin d’un <strong>site vitrine</strong>, d’un <strong>site e-commerce</strong>
+          ou d’une <strong>plateforme web</strong>, notre objectif est simple :
+          construire un site rapide, clair et optimisé pour convertir (WhatsApp, formulaires, appels).
+        </p>
+
+        <p>
+          Vous trouverez ici un aperçu de nos services : création de sites, plateformes,
+          <strong>logiciels de gestion</strong>, <strong>SEO</strong> et <strong>Google Ads</strong>.
+          Choisissez le service adapté, ou contactez-nous pour être conseillé.
+        </p>
       </div>
-    </div>
-  </section>
-  
-  <section class="section">
-    <div class="wrap">
-      <div class="grid">
-        <a class="card" *ngFor="let c of cards" [routerLink]="c.link">
-          <div class="top">
-            <div class="title">{{ c.title }}</div>
-            <span class="pill" *ngIf="c.badge">{{ c.badge }}</span>
-          </div>
-  
-          <p class="desc">{{ c.desc }}</p>
-  
-          <ul class="points">
-            <li *ngFor="let p of c.points"> {{ p }}</li>
-          </ul>
-  
-          <div class="go">Voir le service →</div>
-        </a>
+
+      <p class="lead">{{ heroSubtitle }}</p>
+
+      <div class="cta">
+        <a class="btn primary" routerLink="/contact/">Demander un devis</a>
+        <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
       </div>
+
+      <p class="micro">Plus de demandes • Plus de contacts • Plus d'opportunités</p>
     </div>
-  </section>
-  
-  <section class="cta-final">
-    <div class="wrap">
-      <div class="cta-box">
-        <div>
-          <h2>Vous ne savez pas quoi choisir ?</h2>
-          <p>Écrivez-nous, on vous conseille selon votre objectif (leads, vente, automatisation).</p>
+  </div>
+</section>
+
+<!-- SERVICES GRID -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-header">
+      <h2>Nos services web</h2>
+      <p class="section-intro">
+        De la <strong>création de sites internet</strong> au <strong>développement web sur mesure</strong>,
+        en passant par le <strong>SEO</strong> et <strong>Google Ads</strong>, nous construisons des solutions
+        rapides, fiables et orientées conversion.
+      </p>
+    </div>
+
+    <div class="grid">
+      <a class="card" *ngFor="let c of cards" [routerLink]="c.link">
+        <div class="top">
+          <div class="title">{{ c.title }}</div>
+          <span class="pill" *ngIf="c.badge">{{ c.badge }}</span>
         </div>
-  
-        <div class="cta-actions">
-          <a class="btn primary" routerLink="/contact/">Parler à Vynex</a>
-          <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
-        </div>
+        <p class="desc">{{ c.desc }}</p>
+        <ul class="points">
+          <li *ngFor="let p of c.points">{{ p }}</li>
+        </ul>
+        <div class="go">Voir le service →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ SECTION SEO : pour qui + intentions -->
+<section class="section alt">
+  <div class="wrap">
+    <div class="section-header">
+      <h2>Pour qui sont nos services ?</h2>
+      <p class="section-intro">
+        Nos prestations s’adressent aux entreprises qui veulent un site utile : un site qui
+        <strong>rassure</strong>, <strong>explique</strong> et <strong>génère des demandes</strong>.
+      </p>
+    </div>
+
+    <div class="grid">
+      <div class="card" *ngFor="let a of audiences">
+        <div class="title">{{ a.title }}</div>
+        <p class="desc">{{ a.desc }}</p>
+        <ul class="points">
+          <li *ngFor="let p of a.points">{{ p }}</li>
+        </ul>
       </div>
     </div>
-  </section>
-  
+  </div>
+</section>
+
+
+
+<!-- CTA FINAL -->
+

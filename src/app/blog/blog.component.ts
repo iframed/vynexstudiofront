@@ -36,7 +36,7 @@ export class BlogComponent implements OnInit {
   canonicalUrl = this.siteUrl + this.slug;
 
   // ⚠️ Coordonnées (pour LocalBusiness JSON-LD)
-  city = 'Marrakech';
+  city = 'Casablanca';
   contactPhone = '+212644071444';
   contactEmail = 'contact@vynex.ma';
 
@@ -143,6 +143,11 @@ export class BlogComponent implements OnInit {
     this.title.setTitle(this.metaTitle);
     this.meta.updateTag({ name: 'description', content: this.metaDescription });
     this.meta.updateTag({ name: 'robots', content: 'index,follow' });
+
+    const ogImage = `${this.siteUrl}/seo.webp`;
+    this.meta.updateTag({ property: 'og:image', content: ogImage });
+    this.meta.updateTag({ property: 'og:image:width', content: '1200' });
+    this.meta.updateTag({ property: 'og:image:height', content: '630' });
 
     // OpenGraph
     this.meta.updateTag({ property: 'og:type', content: 'website' });
@@ -267,7 +272,7 @@ export class BlogComponent implements OnInit {
 
     const faqs = [
       {
-        q: 'À quoi sert le blog Vynex ?',
+        q: 'À quoi sert le blog Vynexstudio ?',
         a: "Partager des conseils pratiques pour attirer plus de clients : SEO, Ads, conversion et stratégie digitale.",
       },
       {
