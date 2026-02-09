@@ -1,0 +1,35 @@
+name: Frontend CI/CD
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build_push_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Login DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build & Push frontend image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ifrassen/cco-frontend:latest
+
+      - name: Deploy on server (restart front)
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd "${{ secrets.DEPLOY_PATH }}"
+            docker compose pull front
+            docker compose up -d front
