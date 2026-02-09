@@ -24,7 +24,7 @@
   
           <div class="cta">
             <a class="btn primary" routerLink="/contact/">Demander un devis</a>
-            <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn ghost" (click)="trackWhatsapp('ecommerce_prix_mid')" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
             <a class="btn ghost" routerLink="/services/site-ecommerce/">Voir le service</a>
           </div>
   
@@ -203,7 +203,7 @@
   
         <div class="cta-actions">
           <a class="btn primary" routerLink="/contact/">Demander un devis</a>
-          <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn ghost"  (click)="trackWhatsapp('ecommerce_prix_final')" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
         </div>
       </div>
     </div>

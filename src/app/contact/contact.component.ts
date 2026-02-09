@@ -128,7 +128,7 @@ export class ContactComponent implements OnInit {
       this.budgets.find((b) => b.value === v.budget)?.label ?? (v.budget ?? '-');
 
     const text = encodeURIComponent(
-      `Bonjour Vynex,
+      `Bonjour Vynexstudio,
 Je souhaite un devis.
 
 Nom: ${v.name || '-'}

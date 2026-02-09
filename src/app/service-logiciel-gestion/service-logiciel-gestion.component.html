@@ -19,7 +19,7 @@
   
           <div class="cta">
             <a class="btn primary" routerLink="/contact/">Demander un devis</a>
-            <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn ghost" (click)="trackWhatsapp('logiciel_hero')" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
           </div>
   
           <p class="micro">Productivité • Automatisation • Outil adapté à votre métier</p>
@@ -164,7 +164,7 @@
   
         <div class="cta-actions">
           <a class="btn primary" routerLink="/contact/">Demander un devis</a>
-          <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn ghost" (click)="trackWhatsapp('logiciel_final')" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
         </div>
       </div>
     </div>

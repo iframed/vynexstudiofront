@@ -16,7 +16,7 @@ import { filter } from 'rxjs';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'LogiTech';
+  title = 'Vynexstudio';
   private router = inject(Router);
   private analytics = inject(AnalyticsService);
 
@@ -27,6 +27,15 @@ export class AppComponent {
         this.analytics.pageView(e.urlAfterRedirects);
       });
   }
+  trackWhatsapp(source: string) {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'whatsapp_click', {
+        event_category: 'lead',
+        event_label: source,
+      });
+    }
+  }
+  
   whatsappLink =
     'https://wa.me/212644071444?text=' +
     encodeURIComponent('Bonjour VynexStudio, je veux un devis. Mon besoin : ');

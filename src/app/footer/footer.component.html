@@ -13,17 +13,36 @@
         <a class="ft-btn ft-btn-wa" [href]="whatsappLink" target="_blank" rel="noopener">
           WhatsApp
         </a>
-        <a class="ft-btn ft-btn-ghost" routerLink="/contact">
+
+        <!-- ✅ garder href /contact/ mais naviguer Angular vers /contact -->
+        <a class="ft-btn ft-btn-ghost" href="/contact/" (click)="nav('/contact/', $event)">
           Devis
         </a>
       </div>
     </div>
 
     <div class="ft-links">
-      <a *ngFor="let l of linksServices" class="ft-a" [routerLink]="l.path">{{ l.label }}</a>
+      <!-- Services -->
+      <a *ngFor="let l of linksServices"
+         class="ft-a"
+         [attr.href]="l.path"
+         (click)="nav(l.path, $event)">
+        {{ l.label }}
+      </a>
+
       <span class="ft-dot">•</span>
-      <a *ngFor="let l of linksCompany" class="ft-a" [routerLink]="l.path">{{ l.label }}</a>
+
+      <!-- Company -->
+      <a *ngFor="let l of linksCompany"
+         class="ft-a"
+         [attr.href]="l.path"
+         (click)="nav(l.path, $event)">
+        {{ l.label }}
+      </a>
+
       <span class="ft-dot">•</span>
+
+      <!-- Contact direct -->
       <a class="ft-a" [href]="'mailto:' + email">{{ email }}</a>
       <a class="ft-a" [href]="'tel:' + phone">{{ phone }}</a>
     </div>

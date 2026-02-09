@@ -23,15 +23,24 @@ export class ServicePlateformeWebComponent implements OnInit {
 
   // ⚠️ Mets ton WhatsApp
   whatsappNumber = '+212644071444';
+  trackWhatsapp(source: string) {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'whatsapp_click', {
+        event_category: 'lead',
+        event_label: source,
+      });
+    }
+  }
+  
 
   slug = '/services/plateforme-web/';
   canonicalUrl = this.siteUrl + this.slug;
 
   // SEO
   metaTitle =
-    'Développement de plateforme web au Maroc | Vynex (SaaS, Marketplace, Espace client)';
+    'Développement de plateforme web au Maroc | Vynexstudio (SaaS, Marketplace, Espace client)';
   metaDescription =
-    "Vynex développe des plateformes web sur mesure au Maroc : SaaS, marketplace, réservation, espace client, paiement, rôles, dashboard, API. Une solution scalable orientée produit. Devis gratuit.";
+    "Vynexstudio développe des plateformes web sur mesure au Maroc : SaaS, marketplace, réservation, espace client, paiement, rôles, dashboard, API. Une solution scalable orientée produit. Devis gratuit.";
 
   heroTitle = 'Développement de plateforme web au Maroc';
   heroSubtitle =
@@ -142,8 +151,8 @@ export class ServicePlateformeWebComponent implements OnInit {
   related = [
     { title: 'Logiciel de gestion', link: '/services/platforme-web/' },
     { title: 'Application web', link: '/services/platforme-web/' },
-    { title: 'SEO (référencement naturel)', link: '/seo/' },
-    { title: 'Google Ads', link: '/googleAds/' },
+    { title: 'SEO (référencement naturel)', link: '/services/seo/' },
+    { title: 'Google Ads', link: '/services/google-ads/' },
   ];
 
   get whatsappLink(): string {

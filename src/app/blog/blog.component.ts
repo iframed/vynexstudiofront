@@ -1,7 +1,7 @@
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 type BlogPost = {
   title: string;
@@ -35,13 +35,25 @@ export class BlogComponent implements OnInit {
   slug = '/blog/';
   canonicalUrl = this.siteUrl + this.slug;
 
+
+  private stripTrailingSlash(path: string): string {
+    if (path.length > 1 && path.endsWith('/')) return path.slice(0, -1);
+    return path;
+  }
+  
+  nav(pathWithSlash: string, ev: Event) {
+    ev.preventDefault();
+    // route interne Angular (souvent sans slash)
+    this.router.navigateByUrl(this.stripTrailingSlash(pathWithSlash));
+  }
+
   // ⚠️ Coordonnées (pour LocalBusiness JSON-LD)
   city = 'Casablanca';
   contactPhone = '+212644071444';
   contactEmail = 'contact@vynex.ma';
 
   // SEO
-  metaTitle = 'Blog SEO & Conversion | Conseils marketing & web | Vynex';
+  metaTitle = 'Blog SEO & Conversion | Conseils marketing & web | Vynexstudio';
   metaDescription =
     'Articles pratiques sur SEO, Google Ads, conversion, landing pages et sites web au Maroc. Conseils concrets pour attirer plus de clients et générer plus de leads.';
 
@@ -125,7 +137,8 @@ export class BlogComponent implements OnInit {
   constructor(
     private title: Title,
     private meta: Meta,
-    @Inject(DOCUMENT) private doc: Document
+    @Inject(DOCUMENT) private doc: Document,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -212,7 +225,7 @@ export class BlogComponent implements OnInit {
     const items = this.filteredPosts.map((p, idx) => ({
       '@type': 'ListItem',
       position: idx + 1,
-      url: `${this.siteUrl}/blog/${p.slug}`,
+      url: `${this.siteUrl}/blog/${p.slug}/`,
       item: {
         '@type': 'BlogPosting',
         headline: p.seoTitle ?? p.title,
@@ -232,7 +245,7 @@ export class BlogComponent implements OnInit {
         },
         mainEntityOfPage: {
           '@type': 'WebPage',
-          '@id': `${this.siteUrl}/blog/${p.slug}`,
+          '@id': `${this.siteUrl}/blog/${p.slug}/`,
         },
       },
     }));
@@ -247,7 +260,7 @@ export class BlogComponent implements OnInit {
       blogPost: this.filteredPosts.map((p) => ({
         '@type': 'BlogPosting',
         headline: p.seoTitle ?? p.title,
-        url: `${this.siteUrl}/blog/${p.slug}`,
+        url: `${this.siteUrl}/blog/${p.slug}/`,
         datePublished: p.datePublishedISO,
         dateModified: p.dateModifiedISO ?? p.datePublishedISO,
       })),

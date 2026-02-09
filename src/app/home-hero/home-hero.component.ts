@@ -42,6 +42,15 @@ export class HomeHeroComponent implements OnInit {
 
   // WhatsApp
   whatsappNumber = '+212644071444';
+  trackWhatsapp(source: string) {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'whatsapp_click', {
+        event_category: 'lead',
+        event_label: source,
+      });
+    }
+  }
+  
 
   metaTitle =
     'VynexStudio | Agence Web & Développement Logiciel au Maroc (Sites, Apps, SEO, Ads)';
@@ -87,13 +96,13 @@ export class HomeHeroComponent implements OnInit {
       title: 'SEO (référencement naturel)',
       desc: 'Structure, contenu, performance : vous remontez sur Google.',
       icon: '📈',
-      link: '/seo/',
+      link: '/services/seo/',
     },
     {
       title: 'Campagne publicitaire',
       desc: 'Campagnes rentables orientées leads, suivi & optimisation.',
       icon: '🎯',
-      link: '/googleAds/',
+      link: '/services/google-ads/',
     },
   ];
 
@@ -142,7 +151,7 @@ export class HomeHeroComponent implements OnInit {
 
   get whatsappLink(): string {
     const text = encodeURIComponent(
-      `Bonjour Vynex, je souhaite un devis pour un projet (site / app / logiciel / SEO / Ads).`
+      `Bonjour Vynexstudio, je souhaite un devis pour un projet (site / app / logiciel / SEO / Ads).`
     );
     const phone = this.whatsappNumber.replace(/\s+/g, '').replace('+', '');
     return `https://wa.me/${phone}?text=${text}`;

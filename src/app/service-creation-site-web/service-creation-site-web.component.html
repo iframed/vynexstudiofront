@@ -24,7 +24,7 @@
 
         <div class="cta">
           <a class="btn primary" routerLink="/contact/">Demander un devis</a>
-          <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">
+          <a class="btn ghost"  (click)="trackWhatsapp('service_creation_site_web_hero')" [href]="whatsappLink" target="_blank" rel="noopener">
             WhatsApp
           </a>
         </div>
@@ -84,7 +84,7 @@
 
     <div class="cta" style="margin-top:14px">
       <a class="btn primary" routerLink="/contact/">Demander un devis</a>
-      <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn ghost"  (click)="trackWhatsapp('service_creation_site_web_features')" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </div>
 </section>
@@ -102,7 +102,7 @@
 
     <div class="packs premium">
       <article class="pack" *ngFor="let o of webOffers" [class.featured]="o.featured">
-        <div class="pack-badge" *ngIf="o.badge">{{ o.badge }}</div>
+       
 
         <header class="pack-head">
           <div class="pack-title">{{ o.title }}</div>
@@ -128,7 +128,7 @@
     <div style="margin-top:14px">
       <div class="related">
         <a class="rel" routerLink="/services/seo/">SEO</a>
-        <a class="rel" routerLink="/google-ads/">Google Ads</a>
+        <a class="rel" routerLink="/services/google-ads/">Google Ads</a>
         <a class="rel" routerLink="/contact/">Devis</a>
       </div>
     </div>
@@ -219,7 +219,7 @@
 
       <div class="cta-actions">
         <a class="btn primary" routerLink="/contact/">Demander un devis</a>
-        <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn ghost" (click)="trackWhatsapp('service_creation_site_web_cta_final')" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </div>
   </div>

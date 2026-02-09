@@ -36,7 +36,7 @@
 
       <div class="cta">
         <a class="btn primary" routerLink="/contact/">Demander un devis</a>
-        <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn ghost" (click)="trackWhatsapp('services_hero')" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
       </div>
 
       <p class="micro">Plus de demandes • Plus de contacts • Plus d'opportunités</p>
@@ -62,7 +62,7 @@
           <div class="title">{{ c.title }}</div>
           <span class="pill" *ngIf="c.badge">{{ c.badge }}</span>
         </div>
-        <p class="desc">{{ c.desc }}</p>
+        
         <ul class="points">
           <li *ngFor="let p of c.points">{{ p }}</li>
         </ul>

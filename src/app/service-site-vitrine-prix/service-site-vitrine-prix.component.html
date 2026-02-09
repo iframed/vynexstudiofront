@@ -24,7 +24,7 @@
   
           <div class="cta">
             <a class="btn primary" routerLink="/contact/">Demander un devis</a>
-            <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn ghost" (click)="trackWhatsapp('vitrine_prix_hero')" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
             <a class="btn ghost" routerLink="/services/site-vitrine/">Voir le service</a>
           </div>
   
@@ -87,7 +87,7 @@
   
       <div class="packs premium">
         <article class="pack" *ngFor="let p of packs" [class.featured]="p.featured">
-          <div class="pack-badge" *ngIf="p.featured">Le plus demandé</div>
+          <div class="pack-badge" *ngIf="p.featured"></div>
   
           <header class="pack-head">
             <div class="pack-title">{{ p.title }}</div>
@@ -169,7 +169,7 @@
   
       <div class="cta-row">
         <a class="btn primary" routerLink="/contact/">Demander une estimation</a>
-        <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn ghost" (click)="trackWhatsapp('vitrine_prix_table')" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </div>
   </section>
@@ -202,7 +202,7 @@
   
         <div class="cta-actions">
           <a class="btn primary" routerLink="/contact/">Demander un devis</a>
-          <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn ghost" (click)="trackWhatsapp('vitrine_prix_final')" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
         </div>
       </div>
     </div>

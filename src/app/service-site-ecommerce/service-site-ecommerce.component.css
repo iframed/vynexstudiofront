@@ -355,4 +355,42 @@
     .packs.premium{ grid-template-columns: 1fr; }
     .cta-box{ flex-direction: column; align-items: flex-start; }
   }
-  
+  /* CTA PRIX en bleu (cohérent avec tes boutons principaux) */
+.price-cta{
+  display:flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  text-decoration:none;
+  font-weight: 1000;
+  letter-spacing: -0.01em;
+  align-items: center;      /* centre horizontalement */
+  justify-content: center;  /* centre verticalement */
+  text-align: center;   
+
+  background: var(--accent); /* même bleu */
+  color: #fff;
+  border: 1px solid rgba(59,130,246,.55);
+
+  box-shadow: 0 12px 34px rgba(59,130,246,.22);
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.price-cta:hover{
+  transform: translateY(-2px);
+  background: var(--accent2);
+  box-shadow: 0 18px 55px rgba(59,130,246,.30);
+}
+
+.price-cta:focus-visible{
+  outline: 2px solid rgba(59,130,246,.6);
+  outline-offset: 3px;
+}
+
+/* sous-texte blanc mais discret */
+.price-cta-sub{
+  font-size: 12px;
+  font-weight: 800;
+  color: rgba(255,255,255,.85);
+}

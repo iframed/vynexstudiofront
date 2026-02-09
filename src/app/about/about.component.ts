@@ -26,7 +26,7 @@ export class AboutComponent implements OnInit {
   slug = '/a-propos/';
   canonicalUrl = this.siteUrl + this.slug;
 
-  metaTitle = 'À propos de Vynexstudio | Agence web, logiciels & SEO au Maroc';
+  metaTitle = 'Agence web Vynexstudio | Agence digital, logiciels & SEO au Maroc';
   metaDescription =
     "Vynexstudio accompagne les entreprises au Maroc dans la création de sites web, plateformes, logiciels et stratégie SEO/Ads. Objectif : croissance, crédibilité et conversion.";
 

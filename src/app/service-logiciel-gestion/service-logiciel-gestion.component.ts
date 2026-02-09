@@ -24,12 +24,22 @@ export class ServiceLogicielGestionComponent implements OnInit {
   // ⚠️ Mets ton WhatsApp
   whatsappNumber = '+212644071444';
 
+  trackWhatsapp(source: string) {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'whatsapp_click', {
+        event_category: 'lead',
+        event_label: source,
+      });
+    }
+  }
+  
+
   slug = '/services/logiciel-gestion/';
   canonicalUrl = this.siteUrl + this.slug;
 
   // SEO
   metaTitle =
-    'Logiciel de gestion sur mesure au Maroc | Vynex (CRM/ERP, Dashboard, Automatisation)';
+    'Logiciel de gestion sur mesure au Maroc | Vynexstudio (CRM/ERP, Dashboard, Automatisation)';
   metaDescription =
     "Vynexstudio développe des logiciels de gestion sur mesure au Maroc : CRM/ERP, dashboards, facturation, stock, RH, workflow, rôles & permissions. Un outil adapté à votre métier. Devis gratuit.";
 
@@ -83,7 +93,7 @@ export class ServiceLogicielGestionComponent implements OnInit {
 
   packs: Pack[] = [
     {
-      title: 'Starter (MVP)',
+      title: 'Starter ',
       priceHint: 'Valider vite',
       who: 'PME / équipes qui veulent un premier module',
       includes: [

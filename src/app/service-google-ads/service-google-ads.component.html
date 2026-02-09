@@ -39,7 +39,7 @@
              [href]="whatsappLink"
              target="_blank"
              rel="noopener"
-             (click)="trackCta('whatsapp')">
+             (click)="trackWhatsapp('google_ads_hero')">
             WhatsApp
           </a>
         </div>
@@ -186,7 +186,7 @@
 
       <div class="cta-actions">
         <a class="btn primary" routerLink="/contact" (click)="trackCta('primary')">Demander un devis</a>
-        <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener" (click)="trackCta('whatsapp')">
+        <a class="btn ghost" (click)="trackWhatsapp('google_ads_final')" [href]="whatsappLink" target="_blank" rel="noopener" (click)="trackCta('whatsapp')">
           WhatsApp
         </a>
       </div>

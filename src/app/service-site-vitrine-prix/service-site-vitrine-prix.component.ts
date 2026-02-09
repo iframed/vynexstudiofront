@@ -21,6 +21,15 @@ export class ServiceSiteVitrinePrixComponent implements OnInit {
 
   siteUrl = 'https://vynexstudio.com';
   whatsappNumber = '+212644071444';
+  trackWhatsapp(source: string) {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'whatsapp_click', {
+        event_category: 'lead',
+        event_label: source,
+      });
+    }
+  }
+  
 
   slug = '/services/site-vitrine/prix/';
   canonicalUrl = this.siteUrl + this.slug;

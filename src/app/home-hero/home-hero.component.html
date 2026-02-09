@@ -17,7 +17,7 @@
   
         <div class="cta">
           <a class="btn primary" routerLink="/contact/">Demander un devis gratuit</a>
-          <a class="btn outline" [href]="whatsappLink" target="_blank" rel="noopener">
+          <a class="btn outline" (click)="trackWhatsapp('home_hero_whatsapp')" [href]="whatsappLink" target="_blank" rel="noopener">
             WhatsApp — réponse rapide
           </a>
         </div>
@@ -148,7 +148,7 @@
   
         <div class="cta-actions">
           <a class="btn primary" routerLink="/contact/">Demander un devis</a>
-          <a class="btn outline" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn outline" (click)="trackWhatsapp('home_cta_final_whatsapp')" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
         </div>
       </div>
     </div>

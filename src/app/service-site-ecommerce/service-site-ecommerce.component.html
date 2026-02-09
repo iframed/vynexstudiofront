@@ -21,7 +21,7 @@
   
           <div class="cta">
             <a class="btn primary" routerLink="/contact/">Demander un devis</a>
-            <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">
+            <a class="btn ghost" (click)="trackWhatsapp('ecommerce_hero')" [href]="whatsappLink" target="_blank" rel="noopener">
               WhatsApp
             </a>
           </div>
@@ -108,10 +108,7 @@
           <header class="pack-head">
             <div class="pack-title">{{ p.title }}</div>
   
-            <div class="pack-price">
-              <span class="amount">{{ p.price }}</span>
-              <span class="currency">DH</span>
-            </div>
+            
           </header>
   
           <div class="pack-who">{{ p.who }}</div>
@@ -124,8 +121,12 @@
           </ul>
   
           <div class="pack-actions">
-            <a routerLink="/services/site-ecommerce/prix">Voir les prix</a>
-            <div class="pack-note">Réponse rapide • Devis clair • Sans engagement</div>
+            <a class="price-cta" routerLink="/services/site-ecommerce/prix">
+              Voir les prix
+              
+            </a>
+          
+            
           </div>
         </article>
       </div>
@@ -176,7 +177,7 @@
   
         <div class="cta-actions">
           <a class="btn primary" routerLink="/contact/">Demander un devis</a>
-          <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn ghost" (click)="trackWhatsapp('ecommerce_final')" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
         </div>
       </div>
     </div>

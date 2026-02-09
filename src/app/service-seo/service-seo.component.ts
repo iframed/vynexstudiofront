@@ -23,8 +23,17 @@ export class ServiceSeoComponent implements OnInit {
 
   // ⚠️ Mets ton WhatsApp
   whatsappNumber = '+212644071444';
+  trackWhatsapp(source: string) {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'whatsapp_click', {
+        event_category: 'lead',
+        event_label: source,
+      });
+    }
+  }
+  
 
-  slug = '/seo/';
+  slug = '/services/seo/';
   canonicalUrl = this.siteUrl + this.slug;
 
   // SEO (page)
@@ -136,7 +145,7 @@ export class ServiceSeoComponent implements OnInit {
   ];
 
   related = [
-    { title: 'Google Ads', link: '/googleAds/' },
+    { title: 'Google Ads', link: '/services/google-ads/' },
     { title: 'Site vitrine', link: '/services/site-vitrine/' },
     { title: 'Site e-commerce', link: '/services/site-ecommerce/' },
     { title: 'Logiciel de gestion', link: '/services/logiciel-gestion/' },

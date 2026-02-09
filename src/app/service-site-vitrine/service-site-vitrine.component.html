@@ -19,7 +19,7 @@
 
         <div class="cta">
           <a class="btn primary" routerLink="/contact/">Demander un devis</a>
-          <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">
+          <a class="btn ghost"  (click)="trackWhatsapp('vitrine_hero')" [href]="whatsappLink" target="_blank" rel="noopener">
             WhatsApp
           </a>
         </div>
@@ -126,9 +126,14 @@
         </ul>
 
         <div class="pack-actions">
-          <a routerLink="/services/site-vitrine/prix">Voir les prix</a>
-          <div class="pack-note">Réponse rapide • Devis clair • Sans engagement</div>
+          <a class="price-cta" routerLink="/services/site-vitrine/prix">
+            Voir les prix
+            
+          </a>
+        
+          
         </div>
+        
       </article>
     </div>
   </div>
@@ -162,7 +167,7 @@
 
       <div class="cta-actions">
         <a class="btn primary" routerLink="/contact/">Demander un devis</a>
-        <a class="btn ghost" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn ghost" (click)="trackWhatsapp('vitrine_final')" [href]="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </div>
   </div>

@@ -9,7 +9,7 @@
     <div class="badge">VynexStudio • Agence Web & Marketing</div>
 
     <h1>
-      Création de sites & logiciels sur mesure
+      Création de sites web & logiciels sur mesure
       <span class="sub">+ SEO & Google Ads pour générer des clients.</span>
     </h1>
 
@@ -57,7 +57,10 @@
     </header>
 
     <div class="grid">
-      <a class="card" *ngFor="let p of filteredPosts" [routerLink]="['/blog', p.slug]">
+      <a class="card"
+   *ngFor="let p of filteredPosts"
+   [attr.href]="'/blog/' + p.slug + '/'"
+   (click)="nav('/blog/' + p.slug + '/', $event)">
         <div class="cover">
           <img [src]="p.cover" [alt]="p.coverAlt" loading="lazy" />
           <span class="pill">{{ p.category }}</span>
@@ -89,8 +92,8 @@
           </p>
         </div>
         <div class="bottom-actions">
-          <a class="btn primary" routerLink="/contact">Demander un devis</a>
-          <a class="btn outline" routerLink="/services">Voir nos services</a>
+          <a class="btn primary" routerLink="/contact/">Demander un devis</a>
+          <a class="btn outline" routerLink="/services/">Voir nos services</a>
         </div>
       </div>
     </div>

@@ -413,7 +413,7 @@ export class BlogPostComponent implements OnInit, OnDestroy {
     this.meta.updateTag({ property: 'og:type', content: 'website' });
     this.meta.updateTag({ property: 'og:title', content: title });
     this.meta.updateTag({ property: 'og:description', content: desc });
-    this.meta.updateTag({ property: 'og:url', content: this.siteUrl + '/blog/' + slug });
+    this.meta.updateTag({ property: 'og:url', content: this.siteUrl + '/blog/' + slug + '/' });
 
     const ogImg = this.siteUrl + '/seo.webp';
 this.meta.updateTag({ property: 'og:image', content: ogImg });
@@ -432,7 +432,7 @@ this.meta.updateTag({ name: 'twitter:image', content: ogImg });
   }
 
   private getCanonicalUrl(slug: string): string {
-    return `${this.siteUrl}/blog/${slug}`;
+    return `${this.siteUrl}/blog/${slug}/`;
   }
 
   private absoluteUrl(pathOrUrl: string): string {

@@ -29,6 +29,16 @@ export class ServiceGoogleAdsComponent implements OnInit {
   // ⚠️ mets ton WhatsApp
   whatsappNumber = '+212644071444';
 
+  trackWhatsapp(source: string) {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'whatsapp_click', {
+        event_category: 'lead',
+        event_label: source,
+      });
+    }
+  }
+  
+
   /**
    * ✅ Slug SEO recommandé:
    * - plus lisible
@@ -38,7 +48,7 @@ export class ServiceGoogleAdsComponent implements OnInit {
    * Si ton router actuel est /googleAds/, garde l’ancien mais redirige 301 côté serveur
    * vers /google-ads/ pour éviter le duplicate content.
    */
-  slug = '/google-ads/';
+  slug = '/services/google-ads/';
   canonicalUrl = this.siteUrl + this.slug;
 
   /**
@@ -162,10 +172,10 @@ export class ServiceGoogleAdsComponent implements OnInit {
   ];
 
   related = [
-    { title: 'SEO (référencement naturel)', link: '/seo/' },
+    { title: 'SEO (référencement naturel)', link: '/services/seo/' },
     { title: 'Landing page / site vitrine', link: '/services/site-vitrine/' },
     { title: 'Plateforme web', link: '/services/plateforme-web/' },
-    { title: 'Tracking & analytics', link: '/services/tracking-analytics/' }, // ✅ évite doublon /seo/
+    { title: 'Tracking & analytics', link: '/services/google-ads/' }, // ✅ évite doublon /seo/
   ];
 
   get whatsappLink(): string {

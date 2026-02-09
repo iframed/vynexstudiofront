@@ -1,0 +1,13 @@
+
+//cdn.jsdelivr.net
+/a-propos
+/blog
+/contact
+/favicon.ico
+/realisations
+/services/google-ads
+/services/logiciel-gestion
+/services/plateforme-web
+/services/seo
+/services/site-ecommerce
+/services/site-vitrine

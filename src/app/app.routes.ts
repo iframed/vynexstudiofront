@@ -3,14 +3,14 @@ import { ServiceSiteEcommercePrixComponent } from './service-site-ecommerce-prix
 import { ServiceSiteVitrinePrixComponent } from './service-site-vitrine-prix/service-site-vitrine-prix.component';
 
 export const routes: Routes = [
-  // Home (ne pas précharger, c'est la page initiale)
+  // Home
   {
     path: '',
     loadComponent: () =>
       import('./home-hero/home-hero.component').then((m) => m.HomeHeroComponent),
   },
 
-  // Pages (précharge)
+  // Pages
   {
     path: 'services',
     data: { preload: true },
@@ -24,14 +24,6 @@ export const routes: Routes = [
       import('./contact/contact.component').then((m) => m.ContactComponent),
   },
   {
-    path: 'services/google-ads',
-    data: { preload: true },
-    loadComponent: () =>
-      import('./service-google-ads/service-google-ads.component').then(
-        (m) => m.ServiceGoogleAdsComponent
-      ),
-  },
-  {
     path: 'blog',
     data: { preload: true },
     loadComponent: () =>
@@ -39,7 +31,6 @@ export const routes: Routes = [
   },
   {
     path: 'blog/:slug',
-    // pas de preload (inutiles de précharger tous les articles)
     loadComponent: () =>
       import('./blog-post-component/blog-post-component.component').then(
         (m) => m.BlogPostComponent
@@ -60,7 +51,15 @@ export const routes: Routes = [
       ),
   },
 
-  // Services (détails) (précharge)
+  // Services (détails)
+  {
+    path: 'services/creation-site-web',
+    data: { preload: true },
+    loadComponent: () =>
+      import('./service-creation-site-web/service-creation-site-web.component').then(
+        (m) => m.ServiceCreationSiteWebComponent
+      ),
+  },
   {
     path: 'services/plateforme-web',
     data: { preload: true },
@@ -101,8 +100,16 @@ export const routes: Routes = [
         (m) => m.ServiceSeoComponent
       ),
   },
+  {
+    path: 'services/google-ads',
+    data: { preload: true },
+    loadComponent: () =>
+      import('./service-google-ads/service-google-ads.component').then(
+        (m) => m.ServiceGoogleAdsComponent
+      ),
+  },
 
-  // Admin (pas de preload)
+  // Admin
   {
     path: 'admin',
     loadComponent: () =>
@@ -114,19 +121,10 @@ export const routes: Routes = [
       import('./login/login.component').then((m) => m.LoginComponent),
   },
 
-
-  {
-    path: 'services/creation-site-web',
-    data: { preload: true },
-    loadComponent: () =>
-      import('./service-creation-site-web/service-creation-site-web.component')
-        .then(m => m.ServiceCreationSiteWebComponent),
-  },
-
+  // Prix
   { path: 'services/site-ecommerce/prix', component: ServiceSiteEcommercePrixComponent },
-  {
-    path: 'services/site-vitrine/prix',
-    component: ServiceSiteVitrinePrixComponent,
-  }
-  
+  { path: 'services/site-vitrine/prix', component: ServiceSiteVitrinePrixComponent },
+
+  // (optionnel) 404 -> home
+  // { path: '**', redirectTo: '' },
 ];
